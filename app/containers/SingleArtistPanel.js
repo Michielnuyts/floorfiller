@@ -4,8 +4,8 @@ import { View, Text, StyleSheet, Image } from 'react-native';
 export default class SingleArtistPanel extends Component {
   static propTypes = {
     artistName: PropTypes.string.isRequired,
-    playTime: PropTypes.string.isRequired,
-    startTime: PropTypes.string.isRequired
+    startTime: PropTypes.string.isRequired,
+    endTime: PropTypes.string.isRequired
   };
   state = {};
   render() {
@@ -21,10 +21,10 @@ export default class SingleArtistPanel extends Component {
         <View style={styles.infoAndImage}>
           <View>
             <Text style={styles.playtime}>
-              {this.props.playTime}
+              {this.props.startTime} - {this.props.endTime}
             </Text>
             <Text style={styles.untilText}>
-              {this.props.startTime}
+              Starts in 10 minutes
             </Text>
           </View>
           <View style={styles.imageContainer}>

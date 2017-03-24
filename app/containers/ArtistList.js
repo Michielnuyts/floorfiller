@@ -1,44 +1,44 @@
 import React, { PropTypes, Component } from 'react';
 import { View, Text, StyleSheet, ScrollView } from 'react-native';
+import { connect } from 'react-redux';
+import { getAllArtists } from '~/redux/modules/artists';
 import SingleArtistPanel from '~/containers/SingleArtistPanel';
 
-export default class ArtistList extends Component {
+class ArtistList extends Component {
   static propTypes = {};
   state = {};
+  componentDidMount() {
+    this.props.dispatch(getAllArtists());
+  }
+  renderEachArtistPanel() {
+    if (this.props.artists) {
+      // Select artists from the active stage
+      const artists = this.props.artists[this.props.activeStage];
+      return Object.keys(artists).map((artist, i) => {
+        return (
+          <SingleArtistPanel
+            key={i}
+            artistName={artists[artist].artistName}
+            startTime={artists[artist].startTime}
+            endTime={artists[artist].endTime}
+          />
+        );
+      });
+    } else {
+      return (
+        <View>
+          <Text>
+            Loading ...
+          </Text>
+        </View>
+      );
+    }
+  }
   render() {
     return (
       <View style={styles.container}>
         <ScrollView>
-          <SingleArtistPanel
-            artistName="CASHMERE"
-            playTime="14.00 - 15.00"
-            startTime="Starts in 15 minutes"
-          />
-          <SingleArtistPanel
-            artistName="JORIS VOORN"
-            playTime="16.00 - 17.00"
-            startTime="Starts in 2 hours"
-          />
-          <SingleArtistPanel
-            artistName="wAFF"
-            playTime="17.00 - 18.30"
-            startTime="Starts in 4 hours"
-          />
-          <SingleArtistPanel
-            artistName="AMELIE LENS"
-            playTime="18.30 - 20.00"
-            startTime="Starts in 8 hours"
-          />
-          <SingleArtistPanel
-            artistName="REELOW"
-            playTime="20.00 - 00.00"
-            startTime="Starts tomorrow"
-          />
-          <SingleArtistPanel
-            artistName="MASSIMO CONECTO &amp; MISS SHENE"
-            playTime="20.00 - 00.00"
-            startTime="Starts tomorrow"
-          />
+          {this.renderEachArtistPanel()}
         </ScrollView>
       </View>
     );
@@ -52,3 +52,13 @@ const styles = StyleSheet.create({
     alignItems: 'center'
   }
 });
+
+const mapStateToProps = ({ artists, lineupMenu }) => {
+  return {
+    artists: artists.artists,
+    activeDay: lineupMenu.activeDayTab,
+    activeStage: lineupMenu.activeStageTab
+  };
+};
+
+export default connect(mapStateToProps)(ArtistList);

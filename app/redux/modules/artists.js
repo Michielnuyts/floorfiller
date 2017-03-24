@@ -1,18 +1,17 @@
 import { ref } from '~/firebase';
 
-const GET_ALL_ARTISTS_FROM_STAGE = 'GET_ALL_ARTISTS_FROM_STAGE';
+const GET_ALL_ARTISTS = 'GET_ALL_ARTISTS';
 
-export const getAllArtistsFromStage = stage => {
+// Get all the artists from firebase, should only happen once
+// afterwards it will get chached in redux and persist in the
+// local storage of the device
+export const getAllArtists = () => {
   return dispatch => {
-    const artists = ref
-      .child(`/lineup/${stage}`)
-      .once('value')
-      .then(snapshot => snapshot.val());
-    // Send firebase results to Redux
-    dispatch({
-      type: GET_ALL_ARTISTS_FROM_STAGE,
-      artists
-    });
+    ref.child(`/lineup`).once('value').then(snapshot =>
+      dispatch({
+        type: GET_ALL_ARTISTS,
+        artists: snapshot.val()
+      }));
   };
 };
 
@@ -22,7 +21,7 @@ const INITIAL_STATE = {
 
 export default (state = INITIAL_STATE, action) => {
   switch (action.type) {
-    case GET_ALL_ARTISTS_FROM_STAGE:
+    case GET_ALL_ARTISTS:
       return { ...state, artists: action.artists };
 
     default:
