@@ -2,7 +2,7 @@ import React, { PropTypes, Component } from 'react';
 import { View, Animated } from 'react-native';
 import Icon from 'react-native-vector-icons/MaterialIcons';
 
-export default class Smiley extends Component {
+export default class AnimatedIcon extends Component {
   static propTypes = {};
   state = {
     spinValue: new Animated.Value(0)
@@ -24,7 +24,7 @@ export default class Smiley extends Component {
           transform: [{ rotate: spin }],
           backgroundColor: 'rgba(0,0,0,0)'
         }}>
-        <Icon name="sentiment-satisfied" color="#fff" size={20} />
+        <Icon name={this.props.name} color="#fff" size={20} />
       </Animated.View>
     );
   }

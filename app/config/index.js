@@ -1,0 +1,5 @@
+export const stages = {
+  THURSDAY: ['JOYHAUSER INVITES'],
+  FRIDAY: ['MATERIA', 'CDA', 'PANORAMA', 'CAMPING'],
+  SATURDAY: ['CULTURE TEK', 'LABYRINTH', 'AFTR', 'CAMPING']
+};

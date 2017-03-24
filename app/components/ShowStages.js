@@ -1,31 +1,33 @@
 import React, { PropTypes, Component } from 'react';
 import { View, Text, StyleSheet } from 'react-native';
-import Tab from '~/components/Tab';
+import { connect } from 'react-redux';
+import SingleStage from '~/components/SingleStage';
+import { setStageActive } from '~/redux/modules/lineupMenu';
+import { stages } from '~/config';
+import { dimensions } from '~/styles';
 
-export default class ShowStages extends Component {
-  static propTypes = {};
-  state = {};
+class ShowStages extends Component {
+  handleOnClick = stage => {
+    this.props.dispatch(setStageActive(stage));
+  };
+  renderEachRow() {
+    console.log(stages);
+    const { activeStage, activeDay } = this.props;
+    return stages[activeDay].map(stage => {
+      return (
+        <SingleStage
+          key={stage}
+          onPress={this.handleOnClick}
+          showActiveIcon={activeStage === stage ? true : false}>
+          {stage}
+        </SingleStage>
+      );
+    });
+  }
   render() {
     return (
       <View style={styles.container}>
-        <Tab showActiveIcon={true}>
-          MATERIA
-        </Tab>
-        <Tab>
-          MAIN
-        </Tab>
-        <Tab>
-          CDA
-        </Tab>
-        <Tab>
-          PIT
-        </Tab>
-        <Tab>
-          PANORAMA
-        </Tab>
-        <Tab>
-          CAMPING
-        </Tab>
+        {this.renderEachRow()}
       </View>
     );
   }
@@ -33,9 +35,18 @@ export default class ShowStages extends Component {
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1,
     flexDirection: 'row',
     justifyContent: 'space-between',
-    alignItems: 'flex-end'
+    alignItems: 'flex-end',
+    width: dimensions.screenWidth
   }
 });
+
+const mapStateToProps = ({ lineupMenu }) => {
+  return {
+    activeStage: lineupMenu.activeStageTab,
+    activeDay: lineupMenu.activeDayTab
+  };
+};
+
+export default connect(mapStateToProps)(ShowStages);

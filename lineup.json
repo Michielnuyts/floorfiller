@@ -1,17 +1,157 @@
 {
   "lineup": {
-    "MAIN": {
+    "JOYHAUSER INVITES": {
       "1": {
-        "artistName": "CASHMERE",
-        "day": 20,
-        "startTime": "17:30",
+        "artistName": "MÖBIUS",
+        "day": "THURSDAY",
+        "startTime": "17:00",
+        "endTime": "18:30"
+      },
+      "2": {
+        "artistName": "TANZO & MORRIS",
+        "day": "THURSDAY",
+        "startTime": "18:30",
+        "endTime": "20:00"
+      },
+      "3": {
+        "artistName": "TOMY & JERRY",
+        "day": "THURSDAY",
+        "startTime": "20:00",
+        "endTime": "21:30"
+      },
+      "4": {
+        "artistName": "JOYHAUSER",
+        "day": "THURSDAY",
+        "startTime": "21:30",
+        "endTime": "23:00"
+      },
+      "5": {
+        "artistName": "MARCO FARAONE",
+        "day": "THURSDAY",
+        "startTime": "23:00",
+        "endTime": "01:00"
+      }
+    },
+    "MATERIA": {
+      "6": {
+        "artistName": "KLAPS",
+        "day": "FRIDAY",
+        "startTime": "14:00",
+        "endTime": "16:00"
+      },
+      "7": {
+        "artistName": "DOUBLE U JAY",
+        "day": "FRIDAY",
+        "startTime": "16:00",
+        "endTime": "18:00"
+      },
+      "8": {
+        "artistName": "GOLDFOX",
+        "day": "FRIDAY",
+        "startTime": "18:00",
+        "endTime": "20:00"
+      },
+      "9": {
+        "artistName": "MARKUS SUCKUT",
+        "day": "FRIDAY",
+        "startTime": "20:00",
+        "endTime": "22:00"
+      },
+      "10": {
+        "artistName": "JULIAN JEWEIL",
+        "day": "FRIDAY",
+        "startTime": "22:00",
+        "endTime": "00:00"
+      },
+      "11": {
+        "artistName": "MARCO BAILEY",
+        "day": "FRIDAY",
+        "startTime": "00:00",
+        "endTime": "02:00"
+      }
+    },
+    "CDA": {
+      "12": {
+        "artistName": "UKNOWN",
+        "day": "FRIDAY",
+        "startTime": "13:00",
+        "endTime": "15:00"
+      },
+      "13": {
+        "artistName": "UKNOWN",
+        "day": "FRIDAY",
+        "startTime": "15:00",
+        "endTime": "17:00"
+      },
+      "14": {
+        "artistName": "UKNOWN",
+        "day": "FRIDAY",
+        "startTime": "17:00",
         "endTime": "19:00"
+      },
+      "15": {
+        "artistName": "JORIS VOORN",
+        "day": "FRIDAY",
+        "startTime": "19:00",
+        "endTime": "21:00"
+      },
+      "16": {
+        "artistName": "FLASHMOB",
+        "day": "FRIDAY",
+        "startTime": "21:00",
+        "endTime": "23:00"
+      },
+      "17": {
+        "artistName": "wAFF",
+        "day": "FRIDAY",
+        "startTime": "23:00",
+        "endTime": "01:00"
+      }
+    },
+    "PANORAMA": {
+      "18": {
+        "artistName": "CELLINI",
+        "day": "FRIDAY",
+        "startTime": "13:00",
+        "endTime": "15:00"
       }
     },
     "CAMPING": {
-      "2": {
+      "9": {
         "artistName": "MASSIMO CONECTO & MISS SHENE",
-        "day": 21,
+        "day": "FRIDAY",
+        "startTime": "14:30",
+        "endTime": "16:00"
+      }
+    },
+    "CULTURE TEK": {
+      "10": {
+        "artistName": "MASSIMO CONECTO & MISS SHENE",
+        "day": "FRIDAY",
+        "startTime": "14:30",
+        "endTime": "16:00"
+      }
+    },
+    "LABYRINTH": {
+      "11": {
+        "artistName": "MASSIMO CONECTO & MISS SHENE",
+        "day": "FRIDAY",
+        "startTime": "14:30",
+        "endTime": "16:00"
+      }
+    },
+    "AFTR": {
+      "12": {
+        "artistName": "MASSIMO CONECTO & MISS SHENE",
+        "day": "FRIDAY",
+        "startTime": "14:30",
+        "endTime": "16:00"
+      }
+    },
+    "CAMPING": {
+      "13": {
+        "artistName": "MASSIMO CONECTO & MISS SHENE",
+        "day": "FRIDAY",
         "startTime": "14:30",
         "endTime": "16:00"
       }

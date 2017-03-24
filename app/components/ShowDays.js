@@ -6,8 +6,6 @@ const { width } = Dimensions.get('window');
 import { setDayActive } from '~/redux/modules/lineupMenu';
 
 class ShowDays extends Component {
-  static propTypes = {};
-  state = {};
   handleOnClick = day => {
     this.props.dispatch(setDayActive(day));
   };

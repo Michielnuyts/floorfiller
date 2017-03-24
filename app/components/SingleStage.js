@@ -15,6 +15,9 @@ SingleDay.defaultProps = {
 export default function SingleDay(props) {
   return (
     <View style={styles.container}>
+      {props.showActiveIcon
+        ? <AnimatedIcon name="sentiment-satisfied" />
+        : null}
       <TouchableOpacity onPress={() => props.onPress(props.children)}>
         <View style={styles.tab}>
           <Text style={styles.text}>
@@ -22,9 +25,6 @@ export default function SingleDay(props) {
           </Text>
         </View>
       </TouchableOpacity>
-      {props.showActiveIcon
-        ? <AnimatedIcon name="sentiment-satisfied" />
-        : null}
     </View>
   );
 }
@@ -36,7 +36,7 @@ const styles = StyleSheet.create({
   },
   tab: {
     alignItems: 'center',
-    borderBottomWidth: 1,
+    borderTopWidth: 1,
     borderColor: '#fff',
     padding: 4,
     marginBottom: 2
