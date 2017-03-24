@@ -25,7 +25,16 @@ export default (state = INITIAL_STATE, action) => {
       return { ...state, activeStageTab: action.stage };
 
     case SET_DAY_ACTIVE:
-      return { ...state, activeDayTab: action.day };
+      // Set a standard selected stage for each day
+      let activeStageTab = '';
+      if (action.day === 'THURSDAY') {
+        activeStageTab = 'JOYHAUSER INVITES';
+      } else if (action.day === 'FRIDAY') {
+        activeStageTab = 'MATERIA';
+      } else if (action.day === 'SATURDAY') {
+        activeStageTab = 'CULTURE TEK';
+      }
+      return { ...state, activeDayTab: action.day, activeStageTab };
 
     default:
       return state;

@@ -11,7 +11,9 @@ class ShowStages extends Component {
     this.props.dispatch(setStageActive(stage));
   };
   renderEachRow() {
-    console.log(stages);
+    // Render all stages on the menu depended on the selected day
+    // The key for the different stages arrays is the name of the day
+    // stages['FRIDAY'] | stages is an obj with 3 arrays
     const { activeStage, activeDay } = this.props;
     return stages[activeDay].map(stage => {
       return (
