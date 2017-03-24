@@ -1,0 +1,20 @@
+{
+  "lineup": {
+    "MAIN": {
+      "1": {
+        "artistName": "CASHMERE",
+        "day": 20,
+        "startTime": "17:30",
+        "endTime": "19:00"
+      }
+    },
+    "CAMPING": {
+      "2": {
+        "artistName": "MASSIMO CONECTO & MISS SHENE",
+        "day": 21,
+        "startTime": "14:30",
+        "endTime": "16:00"
+      }
+    }
+  }
+}
