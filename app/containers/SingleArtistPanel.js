@@ -1,5 +1,6 @@
 import React, { PropTypes, Component } from 'react';
 import { View, Text, StyleSheet, Image } from 'react-native';
+import * as Animatable from 'react-native-animatable';
 
 export default class SingleArtistPanel extends Component {
   static propTypes = {
@@ -10,7 +11,10 @@ export default class SingleArtistPanel extends Component {
   state = {};
   render() {
     return (
-      <View style={styles.container}>
+      <Animatable.View
+        animation="pulse"
+        duration={500}
+        style={styles.container}>
 
         <View style={styles.artistTextInfo}>
           <Text style={styles.artistTitle}>
@@ -35,7 +39,8 @@ export default class SingleArtistPanel extends Component {
             />
           </View>
         </View>
-      </View>
+
+      </Animatable.View>
     );
   }
 }

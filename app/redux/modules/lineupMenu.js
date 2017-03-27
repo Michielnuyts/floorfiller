@@ -14,9 +14,11 @@ export const setDayActive = day => {
   };
 };
 
+// Initial state has to be dynamic depended on what day
+// of the festival it currently is
 const INITIAL_STATE = {
   activeDayTab: 'THURSDAY',
-  activeStageTab: 'MAIN'
+  activeStageTab: 'JOYHAUSER INVITES'
 };
 
 export default (state = INITIAL_STATE, action) => {

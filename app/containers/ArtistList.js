@@ -1,35 +1,45 @@
 import React, { PropTypes, Component } from 'react';
-import { View, Text, StyleSheet, ScrollView } from 'react-native';
+import {
+  View,
+  Text,
+  StyleSheet,
+  ScrollView,
+  ActivityIndicator
+} from 'react-native';
 import { connect } from 'react-redux';
 import { getAllArtists } from '~/redux/modules/artists';
 import SingleArtistPanel from '~/containers/SingleArtistPanel';
+import * as Animatable from 'react-native-animatable';
 
 class ArtistList extends Component {
   static propTypes = {};
   state = {};
-  componentDidMount() {
+  componentWillMount() {
     this.props.dispatch(getAllArtists());
   }
   renderEachArtistPanel() {
-    if (this.props.artists) {
+    if (this.props.loadingArtists === false && this.props.artists) {
       // Select artists from the active stage
       const artists = this.props.artists[this.props.activeStage];
+      console.log(artists);
       return Object.keys(artists).map((artist, i) => {
         return (
-          <SingleArtistPanel
-            key={i}
-            artistName={artists[artist].artistName}
-            startTime={artists[artist].startTime}
-            endTime={artists[artist].endTime}
-          />
+          <Animatable.View
+            key={`${artists[artist].artistName}${i}`}
+            easing="ease-out"
+            animation="flipInX">
+            <SingleArtistPanel
+              artistName={artists[artist].artistName}
+              startTime={artists[artist].startTime}
+              endTime={artists[artist].endTime}
+            />
+          </Animatable.View>
         );
       });
     } else {
       return (
         <View>
-          <Text>
-            Loading ...
-          </Text>
+          <ActivityIndicator />
         </View>
       );
     }
@@ -56,6 +66,7 @@ const styles = StyleSheet.create({
 const mapStateToProps = ({ artists, lineupMenu }) => {
   return {
     artists: artists.artists,
+    loadingArtists: artists.loadingArtists,
     activeDay: lineupMenu.activeDayTab,
     activeStage: lineupMenu.activeStageTab
   };
