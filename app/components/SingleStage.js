@@ -1,6 +1,5 @@
 import React, { PropTypes } from 'react';
 import { View, StyleSheet, Text, TouchableOpacity } from 'react-native';
-import AnimatedIcon from '~/components/AnimatedIcon';
 
 SingleDay.propTypes = {
   children: PropTypes.string.isRequired,
@@ -8,18 +7,14 @@ SingleDay.propTypes = {
   onPress: PropTypes.func.isRequired
 };
 
-SingleDay.defaultProps = {
-  showActiveIcon: false
-};
-
 export default function SingleDay(props) {
+  let borderColor = props.showActiveIcon
+    ? 'rgba(255, 255, 255, 1)'
+    : 'rgba(255, 255, 255, 0.7)';
   return (
     <View style={styles.container}>
-      {props.showActiveIcon
-        ? <AnimatedIcon name="sentiment-satisfied" />
-        : null}
       <TouchableOpacity onPress={() => props.onPress(props.children)}>
-        <View style={styles.tab}>
+        <View style={[styles.tab, { borderColor }]}>
           <Text style={styles.text}>
             {props.children}
           </Text>
@@ -36,13 +31,19 @@ const styles = StyleSheet.create({
   },
   tab: {
     alignItems: 'center',
-    borderTopWidth: 1,
-    borderColor: '#fff',
+    borderTopWidth: 3,
+    borderColor: 'rgba(255, 255, 255, 0.7)',
     padding: 4,
-    marginBottom: 2
+    marginBottom: 0
+  },
+  tabActive: {
+    borderColor: 'rgba(255, 255, 255, 1)'
   },
   text: {
     fontSize: 14,
-    color: '#fff'
+    color: '#fff',
+    textShadowColor: 'rgba(255, 255, 255, 0.65)',
+    textShadowOffset: { width: 0, height: 2 },
+    textShadowRadius: 0.8
   }
 });

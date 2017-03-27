@@ -40,7 +40,9 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     justifyContent: 'space-between',
     alignItems: 'flex-end',
-    width: dimensions.screenWidth
+    width: dimensions.screenWidth - 20,
+    marginRight: 10,
+    marginLeft: 10
   }
 });
 

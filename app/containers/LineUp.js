@@ -40,7 +40,7 @@ const styles = StyleSheet.create({
     padding: 5
   },
   showStages: {
-    flex: 1,
+    flex: 0.8,
     justifyContent: 'flex-end',
     marginBottom: 12
   }
