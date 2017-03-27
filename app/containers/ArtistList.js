@@ -32,6 +32,7 @@ class ArtistList extends Component {
               artistName={artists[artist].artistName}
               startTime={artists[artist].startTime}
               endTime={artists[artist].endTime}
+              animationStyle={i % 2 === 0 ? 'rubberBand' : 'jello'}
             />
           </Animatable.View>
         );

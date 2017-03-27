@@ -17,27 +17,33 @@ export default class SingleArtistPanel extends Component {
         style={styles.container}>
 
         <View style={styles.artistTextInfo}>
-          <Text style={styles.artistTitle}>
+          <Animatable.Text
+            animation="rubberBand"
+            delay={1200}
+            style={styles.artistTitle}>
             {this.props.artistName}
-          </Text>
+          </Animatable.Text>
         </View>
 
         <View style={styles.infoAndImage}>
-          <View>
+          <Animatable.View animation="bounceIn" delay={500}>
             <Text style={styles.playtime}>
               {this.props.startTime} - {this.props.endTime}
             </Text>
             <Text style={styles.untilText}>
               Starts in 10 minutes
             </Text>
-          </View>
-          <View style={styles.imageContainer}>
+          </Animatable.View>
+          <Animatable.View
+            animation="fadeInRight"
+            duration={300}
+            style={styles.imageContainer}>
             <Image
               style={styles.image}
               resizeMode="cover"
               source={require('../images/cashmere.png')}
             />
-          </View>
+          </Animatable.View>
         </View>
 
       </Animatable.View>
