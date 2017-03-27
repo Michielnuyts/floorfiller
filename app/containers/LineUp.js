@@ -32,7 +32,8 @@ const styles = StyleSheet.create({
     backgroundColor: '#000'
   },
   showDays: {
-    flex: 1
+    flex: 2.2,
+    marginBottom: 10
   },
   artistList: {
     flex: 8,
@@ -40,8 +41,8 @@ const styles = StyleSheet.create({
     padding: 5
   },
   showStages: {
-    flex: 0.8,
+    flex: 0.6,
     justifyContent: 'flex-end',
-    marginBottom: 12
+    marginBottom: 5
   }
 });

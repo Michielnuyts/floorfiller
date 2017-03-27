@@ -38,10 +38,10 @@ const styles = StyleSheet.create({
     flex: 1,
     flexDirection: 'row',
     justifyContent: 'space-around',
-    alignItems: 'flex-start',
+    alignItems: 'flex-end',
     width: width,
     marginRight: 5,
-    marginleft: 5
+    marginLeft: 5
   }
 });
 

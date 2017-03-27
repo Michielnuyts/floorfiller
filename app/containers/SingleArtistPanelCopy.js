@@ -11,10 +11,10 @@ export default class SingleArtistPanel extends Component {
   state = {};
   render() {
     return (
-      <Image
-        style={styles.container}
-        resizeMode="cover"
-        source={require('../images/cashmere.png')}>
+      <Animatable.View
+        animation="pulse"
+        duration={500}
+        style={styles.container}>
 
         <View style={styles.artistTextInfo}>
           <Animatable.Text
@@ -30,15 +30,23 @@ export default class SingleArtistPanel extends Component {
             <Text style={styles.playtime}>
               {this.props.startTime} - {this.props.endTime}
             </Text>
-          </Animatable.View>
-          <Animatable.View animation="bounceIn" delay={500}>
             <Text style={styles.untilText}>
               Starts in 10 minutes
             </Text>
           </Animatable.View>
+          <Animatable.View
+            animation="fadeInRight"
+            duration={300}
+            style={styles.imageContainer}>
+            <Image
+              style={styles.image}
+              resizeMode="cover"
+              source={require('../images/cashmere.png')}
+            />
+          </Animatable.View>
         </View>
 
-      </Image>
+      </Animatable.View>
     );
   }
 }
@@ -52,7 +60,7 @@ const styles = StyleSheet.create({
     borderWidth: 2,
     borderRadius: 5,
     borderColor: '#fff',
-    height: 70,
+    height: 80,
     padding: 5,
     marginBottom: 5
   },
@@ -64,23 +72,24 @@ const styles = StyleSheet.create({
     width: 300
   },
   artistTextInfo: {
-    justifyContent: 'center',
-    backgroundColor: 'rgba(0, 0, 0, 0)'
+    justifyContent: 'center'
   },
   artistTitle: {
     color: '#fff',
     fontWeight: 'bold',
-    fontSize: 18,
-    textShadowColor: '#000',
-    textShadowOffset: { width: 1.5, height: 1.5 }
+    fontSize: 15
   },
   playtime: {
     color: '#fff',
-    fontSize: 12
+    fontSize: 10
   },
   untilText: {
     color: '#fff',
-    fontSize: 12
+    fontSize: 10
+  },
+  image: {
+    height: 40,
+    width: 190
   },
   imageContainer: {
     borderTopWidth: 2,

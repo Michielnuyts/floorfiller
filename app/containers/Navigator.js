@@ -14,7 +14,7 @@ export default class Navigator extends Component {
     this._drawer.open();
   };
   render() {
-    // FloatingMenuButton moet nog in eens container komen samen met de Router
+    // FloatingMenuButton moet nog in een container komen samen met de Router
     // zodat we die button kunnen laten 'floaten'
     return (
       <Drawer

@@ -1,6 +1,6 @@
 import React, { PropTypes } from 'react';
 import { View, StyleSheet, Text, TouchableOpacity } from 'react-native';
-import AnimatedIcon from '~/components/AnimatedIcon';
+import * as Animatable from 'react-native-animatable';
 
 SingleDay.propTypes = {
   children: PropTypes.string.isRequired,
@@ -13,18 +13,19 @@ SingleDay.defaultProps = {
 };
 
 export default function SingleDay(props) {
+  let borderColor = props.showActiveIcon
+    ? 'rgba(255, 255, 255, 1)'
+    : 'rgba(255, 255, 255, 0.6)';
+  let animation = props.showActiveIcon ? 'tada' : null;
   return (
     <View style={styles.container}>
       <TouchableOpacity onPress={() => props.onPress(props.children)}>
-        <View style={styles.tab}>
-          <Text style={styles.text}>
+        <View style={[styles.tab, { borderColor }]}>
+          <Animatable.Text animation={animation} style={styles.text}>
             {props.children}
-          </Text>
+          </Animatable.Text>
         </View>
       </TouchableOpacity>
-      {props.showActiveIcon
-        ? <AnimatedIcon name="sentiment-satisfied" />
-        : null}
     </View>
   );
 }
@@ -36,7 +37,7 @@ const styles = StyleSheet.create({
   },
   tab: {
     alignItems: 'center',
-    borderBottomWidth: 1,
+    borderBottomWidth: 3,
     borderColor: '#fff',
     padding: 4,
     marginBottom: 2
