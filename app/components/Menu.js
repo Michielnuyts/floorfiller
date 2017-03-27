@@ -1,5 +1,5 @@
 import React, { PropTypes } from 'react';
-import { View, StyleSheet, Text } from 'react-native';
+import { View, StyleSheet, Text, TouchableOpacity } from 'react-native';
 
 Menu.propTypes = {};
 
@@ -9,6 +9,9 @@ export default function Menu(props) {
       <Text>
         Menu
       </Text>
+      <TouchableOpacity onPress={props.closeDrawer}>
+        <Text>CLOSE ME</Text>
+      </TouchableOpacity>
     </View>
   );
 }

@@ -14,8 +14,12 @@ export default class Navigator extends Component {
     this._drawer.open();
   };
   render() {
+    // FloatingMenuButton moet nog in eens container komen samen met de Router
+    // zodat we die button kunnen laten 'floaten'
     return (
-      <Drawer ref={ref => this._drawer = ref} content={<Menu />}>
+      <Drawer
+        ref={ref => this._drawer = ref}
+        content={<Menu closeDrawer={this.closeDrawer} />}>
         <FloatingMenuButton onPress={this.openDrawer} />
         <Router>
           <Scene key="root" sceneStyle={styles.mainAppStyle}>

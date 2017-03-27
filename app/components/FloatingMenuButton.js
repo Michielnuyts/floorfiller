@@ -6,19 +6,22 @@ export default class FloatingMenuButton extends Component {
   state = {};
   render() {
     return (
-      <View style={styles.button}>
-        <TouchableOpacity onPress={this.props.onPress}>
-          <Text>
-            FloatingMenuButton
-          </Text>
-        </TouchableOpacity>
-      </View>
+      <TouchableOpacity style={styles.button} onPress={this.props.onPress}>
+        <Text style={styles.text}>
+          FloatingMenuButton
+        </Text>
+      </TouchableOpacity>
     );
   }
 }
 
 const styles = StyleSheet.create({
   button: {
-    marginTop: 15
+    position: 'absolute',
+    top: 15,
+    left: 2
+  },
+  text: {
+    color: 'red'
   }
 });
