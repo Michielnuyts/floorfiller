@@ -3,6 +3,7 @@ import { View, StyleSheet } from 'react-native';
 import ShowDays from '~/components/ShowDays';
 import ShowStages from '~/components/ShowStages';
 import ArtistList from '~/containers/ArtistList';
+import FloatingMenuButton from '~/components/FloatingMenuButton';
 
 export default class LineUp extends Component {
   static propTypes = {};
@@ -11,6 +12,7 @@ export default class LineUp extends Component {
     return (
       <View style={styles.container}>
         <View style={styles.showDays}>
+          <FloatingMenuButton onPress={this.props.onPress} />
           <ShowDays />
         </View>
         <View style={styles.artistList}>
@@ -27,13 +29,14 @@ export default class LineUp extends Component {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    marginTop: 25,
+    marginTop: 22,
     alignItems: 'center',
     backgroundColor: '#000'
   },
   showDays: {
     flex: 2.2,
-    marginBottom: 10
+    marginTop: 10,
+    alignItems: 'center'
   },
   artistList: {
     flex: 8,

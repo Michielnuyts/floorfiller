@@ -1,5 +1,6 @@
 import React, { PropTypes, Component } from 'react';
-import { View, Text, TouchableOpacity, StyleSheet } from 'react-native';
+import { View, Text, TouchableOpacity, StyleSheet, Image } from 'react-native';
+import * as Animatable from 'react-native-animatable';
 
 export default class FloatingMenuButton extends Component {
   static propTypes = {};
@@ -7,20 +8,18 @@ export default class FloatingMenuButton extends Component {
   render() {
     return (
       <TouchableOpacity style={styles.button} onPress={this.props.onPress}>
-        <Text style={styles.text}>
-          FloatingMenuButton
-        </Text>
+        <Animatable.Image
+          animation="pulse"
+          iterationCount="infinite"
+          style={{ width: 80, height: 80 }}
+          source={require('../images/logo.png')}
+        />
       </TouchableOpacity>
     );
   }
 }
 
 const styles = StyleSheet.create({
-  button: {
-    position: 'absolute',
-    top: 15,
-    left: 2
-  },
   text: {
     color: 'red'
   }
