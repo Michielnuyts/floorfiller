@@ -15,7 +15,7 @@ SingleDay.defaultProps = {
 export default function SingleDay(props) {
   let borderColor = props.showActiveIcon
     ? 'rgba(255, 255, 255, 1)'
-    : 'rgba(255, 255, 255, 0.6)';
+    : 'rgba(255, 255, 255, 0.5)';
   let animation = props.showActiveIcon ? 'tada' : null;
   return (
     <View style={styles.container}>
