@@ -15,8 +15,6 @@ export default class Navigator extends Component {
     this._drawer.open();
   };
   render() {
-    // FloatingMenuButton moet nog in een container komen samen met de Router
-    // zodat we die button kunnen laten 'floaten'
     return (
       <Drawer
         ref={ref => this._drawer = ref}
@@ -42,7 +40,7 @@ export default class Navigator extends Component {
 
 const drawerStyles = {
   drawer: { shadowColor: '#fff', shadowOpacity: 0.8, shadowRadius: 3 },
-  main: { paddingLeft: 0 }
+  main: { paddingLeft: 0 },
 };
 
 const styles = StyleSheet.create({
@@ -50,6 +48,6 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
-    backgroundColor: '#000'
-  }
+    backgroundColor: '#000',
+  },
 });

@@ -15,7 +15,7 @@ export const getAllArtists = () => {
       .then(snapshot =>
         dispatch({
           type: GET_ALL_ARTISTS,
-          artists: snapshot.val()
+          artists: snapshot.val(),
         }))
       .then(() => dispatch(loadingArtists(false)))
       .catch(error => console.log(error));
@@ -25,19 +25,18 @@ export const getAllArtists = () => {
 const loadingArtists = loading => {
   return {
     type: LOADING_ARTISTS,
-    loading
+    loading,
   };
 };
 
 const INITIAL_STATE = {
   artists: null,
-  loadingArtists: false
+  loadingArtists: false,
 };
 
 export default (state = INITIAL_STATE, action) => {
   switch (action.type) {
     case GET_ALL_ARTISTS:
-      console.log('Ik ben hier!');
       return { ...state, artists: action.artists };
 
     case LOADING_ARTISTS:

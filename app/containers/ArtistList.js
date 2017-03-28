@@ -4,12 +4,13 @@ import {
   Text,
   StyleSheet,
   ScrollView,
-  ActivityIndicator
+  ActivityIndicator,
 } from 'react-native';
 import { connect } from 'react-redux';
 import { getAllArtists } from '~/redux/modules/artists';
 import SingleArtistPanel from '~/containers/SingleArtistPanel';
 import * as Animatable from 'react-native-animatable';
+import { dimensions } from '~/styles';
 
 class ArtistList extends Component {
   static propTypes = {};
@@ -39,8 +40,9 @@ class ArtistList extends Component {
       });
     } else {
       return (
-        <View>
+        <View style={styles.loadingScreen}>
           <ActivityIndicator />
+          <Text style={styles.loadingText}>Fetching Artists...</Text>
         </View>
       );
     }
@@ -59,9 +61,19 @@ class ArtistList extends Component {
 const styles = StyleSheet.create({
   container: {
     flex: 2,
-    width: 335,
-    alignItems: 'center'
-  }
+    width: dimensions.screenWidth,
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+  loadingScreen: {
+    marginTop: 80,
+  },
+  loadingText: {
+    marginTop: 5,
+    color: '#fff',
+    fontSize: 12,
+    fontWeight: 'bold',
+  },
 });
 
 const mapStateToProps = ({ artists, lineupMenu }) => {
@@ -69,7 +81,7 @@ const mapStateToProps = ({ artists, lineupMenu }) => {
     artists: artists.artists,
     loadingArtists: artists.loadingArtists,
     activeDay: lineupMenu.activeDayTab,
-    activeStage: lineupMenu.activeStageTab
+    activeStage: lineupMenu.activeStageTab,
   };
 };
 
