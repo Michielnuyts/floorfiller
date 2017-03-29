@@ -114,46 +114,190 @@
         "day": "FRIDAY",
         "startTime": "13:00",
         "endTime": "15:00"
+      },
+      "19": {
+        "artistName": "KAPIBARA",
+        "day": "FRIDAY",
+        "startTime": "15:00",
+        "endTime": "17:00"
+      },
+      "20": {
+        "artistName": "CASHMERE",
+        "day": "FRIDAY",
+        "startTime": "17:00",
+        "endTime": "19:00"
+      },
+      "21": {
+        "artistName": "DECOY",
+        "day": "FRIDAY",
+        "startTime": "19:00",
+        "endTime": "21:00"
+      },
+      "22": {
+        "artistName": "FANGO",
+        "day": "FRIDAY",
+        "startTime": "21:00",
+        "endTime": "23:00"
+      },
+      "223": {
+        "artistName": "PATRICE BAUMEL",
+        "day": "FRIDAY",
+        "startTime": "23:00",
+        "endTime": "01:00"
       }
     },
     "CAMPING": {
-      "9": {
-        "artistName": "MASSIMO CONECTO & MISS SHENE",
+      "23": {
+        "artistName": "MISS SHENE",
         "day": "FRIDAY",
-        "startTime": "14:30",
-        "endTime": "16:00"
+        "startTime": "12:00",
+        "endTime": "13:30"
+      },
+      "24": {
+        "artistName": "KONNA",
+        "day": "FRIDAY",
+        "startTime": "13:30",
+        "endTime": "15:00"
+      },
+      "25": {
+        "artistName": "MASSIMO CONECTO & MISS E",
+        "day": "FRIDAY",
+        "startTime": "15:30",
+        "endTime": "21:00"
       }
     },
     "CULTURE TEK": {
-      "10": {
-        "artistName": "MASSIMO CONECTO & MISS SHENE",
-        "day": "FRIDAY",
-        "startTime": "14:30",
+      "26": {
+        "artistName": "SELEM B2B DJUMAA",
+        "day": "SATURDAY",
+        "startTime": "14:00",
         "endTime": "16:00"
+      },
+      "27": {
+        "artistName": "JERRYMORE B2B VERTIER",
+        "day": "SATURDAY",
+        "startTime": "16:00",
+        "endTime": "18:00"
+      },
+      "28": {
+        "artistName": "CALEB CALLOWAY",
+        "day": "SATURDAY",
+        "startTime": "18:00",
+        "endTime": "20:00"
+      },
+      "29": {
+        "artistName": "REELOW",
+        "day": "SATURDAY",
+        "startTime": "20:00",
+        "endTime": "22:00"
+      },
+      "30": {
+        "artistName": "FRANCISCO ALLENDES",
+        "day": "SATURDAY",
+        "startTime": "22:00",
+        "endTime": "00:00"
+      },
+      "31": {
+        "artistName": "EMANUEL SATIE",
+        "day": "SATURDAY",
+        "startTime": "00:00",
+        "endTime": "02:00"
       }
     },
     "LABYRINTH": {
-      "11": {
-        "artistName": "MASSIMO CONECTO & MISS SHENE",
-        "day": "FRIDAY",
-        "startTime": "14:30",
+      "32": {
+        "artistName": "3AM",
+        "day": "SATURDAY",
+        "startTime": "15:00",
         "endTime": "16:00"
+      },
+      "33": {
+        "artistName": "ALAN FITZPATRICK",
+        "day": "SATURDAY",
+        "startTime": "16:00",
+        "endTime": "17:30"
+      },
+      "34": {
+        "artistName": "LEE DAVON",
+        "day": "SATURDAY",
+        "startTime": "17:30",
+        "endTime": "19:30"
+      },
+      "35": {
+        "artistName": "FARAGO",
+        "day": "SATURDAY",
+        "startTime": "19:30",
+        "endTime": "21:30"
+      },
+      "36": {
+        "artistName": "MICHAEL KLEIN",
+        "day": "SATURDAY",
+        "startTime": "21:30",
+        "endTime": "23:30"
+      },
+      "37": {
+        "artistName": "AMELIE LENS",
+        "day": "SATURDAY",
+        "startTime": "23:30",
+        "endTime": "01:30"
       }
     },
     "AFTR": {
-      "12": {
-        "artistName": "MASSIMO CONECTO & MISS SHENE",
-        "day": "FRIDAY",
-        "startTime": "14:30",
-        "endTime": "16:00"
+      "38": {
+        "artistName": "LUYTENANT",
+        "day": "SATURDAY",
+        "startTime": "13:00",
+        "endTime": "15:00"
+      },
+      "39": {
+        "artistName": "PRINZ",
+        "day": "SATURDAY",
+        "startTime": "15:00",
+        "endTime": "17:00"
+      },
+      "40": {
+        "artistName": "KAGGE & BOWEN",
+        "day": "SATURDAY",
+        "startTime": "17:00",
+        "endTime": "19:00"
+      },
+      "41": {
+        "artistName": "RKL",
+        "day": "SATURDAY",
+        "startTime": "19:00",
+        "endTime": "21:00"
+      },
+      "42": {
+        "artistName": "VISION MACHINE & TASJ",
+        "day": "SATURDAY",
+        "startTime": "21:00",
+        "endTime": "23:30"
+      },
+      "43": {
+        "artistName": "RAMON TAPIA",
+        "day": "SATURDAY",
+        "startTime": "23:30",
+        "endTime": "01:00"
       }
     },
-    "CAMPING": {
-      "13": {
-        "artistName": "MASSIMO CONECTO & MISS SHENE",
-        "day": "FRIDAY",
-        "startTime": "14:30",
-        "endTime": "16:00"
+    "CAMPING_SATURDAY": {
+      "44": {
+        "artistName": "PHADER",
+        "day": "SATURDAY",
+        "startTime": "12:00",
+        "endTime": "13:30"
+      },
+      "45": {
+        "artistName": "DELTANO",
+        "day": "SATURDAY",
+        "startTime": "13:30",
+        "endTime": "15:00"
+      },
+      "46": {
+        "artistName": "MASSIMO CONECTO & MISS E",
+        "day": "SATURDAY",
+        "startTime": "15:30",
+        "endTime": "21:00"
       }
     }
   }

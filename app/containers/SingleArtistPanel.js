@@ -34,18 +34,15 @@ class SingleArtistPanel extends Component {
           source={require('../images/cashmere.png')}>
 
           <View style={styles.artistTextInfo}>
-
             <Animatable.Text
               animation="rubberBand"
               delay={1200}
               style={styles.artistTitle}>
               {this.props.artistName}
             </Animatable.Text>
-
           </View>
 
           <View style={styles.playInfo}>
-
             <Animatable.View animation="bounceIn" delay={500}>
               <Text style={styles.playtime}>
                 {this.props.startTime} - {this.props.endTime}
@@ -57,7 +54,6 @@ class SingleArtistPanel extends Component {
                 Starts in 10 minutes
               </Text>
             </Animatable.View>
-
           </View>
         </Image>
       </TouchableOpacity>
