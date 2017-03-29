@@ -1,50 +1,75 @@
 import React, { PropTypes, Component } from 'react';
-import { View, Text, StyleSheet, Image } from 'react-native';
+import { View, Text, StyleSheet, Image, TouchableOpacity } from 'react-native';
 import * as Animatable from 'react-native-animatable';
 import { dimensions } from '~/styles';
+import { favoriteArtist, unFavoriteArtist } from '~/redux/modules/favorites';
+import { connect } from 'react-redux';
 
-export default class SingleArtistPanel extends Component {
+class SingleArtistPanel extends Component {
   static propTypes = {
     artistName: PropTypes.string.isRequired,
     startTime: PropTypes.string.isRequired,
     endTime: PropTypes.string.isRequired,
   };
+  handleFavorite = () => {
+    const { artistName } = this.props;
+    const isFavorited = this.props.favorites[artistName] || false;
+    // artist will result in a boolean,
+    // fetched by the key of the artist name
+    isFavorited
+      ? this.props.dispatch(unFavoriteArtist(artistName))
+      : this.props.dispatch(favoriteArtist(artistName));
+    // depended on the bool value, favorite or unfavorite the
+    // artistpanel that has been tapped
+  };
   render() {
+    let favoriteStyle = this.props.favorites[this.props.artistName]
+      ? { borderWidth: 5, borderColor: '#00FFA8' }
+      : null;
     return (
-      <Image
-        style={styles.container}
-        resizeMode="cover"
-        source={require('../images/cashmere.png')}>
-        <View style={styles.artistTextInfo}>
+      <TouchableOpacity onPress={this.handleFavorite}>
+        <Image
+          style={[styles.container, favoriteStyle]}
+          resizeMode="cover"
+          source={require('../images/cashmere.png')}>
 
-          <Animatable.Text
-            animation="rubberBand"
-            delay={1200}
-            style={styles.artistTitle}>
-            {this.props.artistName}
-          </Animatable.Text>
+          <View style={styles.artistTextInfo}>
 
-        </View>
+            <Animatable.Text
+              animation="rubberBand"
+              delay={1200}
+              style={styles.artistTitle}>
+              {this.props.artistName}
+            </Animatable.Text>
 
-        <View style={styles.infoAndImage}>
+          </View>
 
-          <Animatable.View animation="bounceIn" delay={500}>
-            <Text style={styles.playtime}>
-              {this.props.startTime} - {this.props.endTime}
-            </Text>
-          </Animatable.View>
+          <View style={styles.playInfo}>
 
-          <Animatable.View animation="bounceIn" delay={500}>
-            <Text style={styles.untilText}>
-              Starts in 10 minutes
-            </Text>
-          </Animatable.View>
+            <Animatable.View animation="bounceIn" delay={500}>
+              <Text style={styles.playtime}>
+                {this.props.startTime} - {this.props.endTime}
+              </Text>
+            </Animatable.View>
 
-        </View>
-      </Image>
+            <Animatable.View animation="bounceIn" delay={500}>
+              <Text style={styles.untilText}>
+                Starts in 10 minutes
+              </Text>
+            </Animatable.View>
+
+          </View>
+        </Image>
+      </TouchableOpacity>
     );
   }
 }
+
+const mapStateToProps = ({ favorites }) => {
+  return { favorites };
+};
+
+export default connect(mapStateToProps)(SingleArtistPanel);
 
 const styles = StyleSheet.create({
   container: {
@@ -59,7 +84,7 @@ const styles = StyleSheet.create({
     padding: 5,
     marginBottom: 5,
   },
-  infoAndImage: {
+  playInfo: {
     flexDirection: 'row',
     justifyContent: 'space-between',
     alignItems: 'center',
@@ -84,9 +109,5 @@ const styles = StyleSheet.create({
   untilText: {
     color: '#fff',
     fontSize: 12,
-  },
-  imageContainer: {
-    borderTopWidth: 2,
-    borderColor: '#fff',
   },
 });

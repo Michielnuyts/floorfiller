@@ -22,7 +22,7 @@ class ArtistList extends Component {
     if (this.props.loadingArtists === false && this.props.artists) {
       // Select artists from the active stage
       const artists = this.props.artists[this.props.activeStage];
-      console.log(artists);
+
       return Object.keys(artists).map((artist, i) => {
         return (
           <Animatable.View

@@ -1,13 +1,18 @@
 import React, { PropTypes, Component } from 'react';
 import { View, StyleSheet } from 'react-native';
+import { connect } from 'react-redux';
 import ShowDays from '~/components/ShowDays';
 import ShowStages from '~/components/ShowStages';
 import ArtistList from '~/containers/ArtistList';
 import FloatingMenuButton from '~/components/FloatingMenuButton';
+import { setInitialStateFromAsyncstorage } from '~/redux/modules/favorites';
 
-export default class LineUp extends Component {
+class LineUp extends Component {
   static propTypes = {};
   state = {};
+  componentWillMount() {
+    this.props.dispatch(setInitialStateFromAsyncstorage());
+  }
   render() {
     return (
       <View style={styles.container}>
@@ -26,26 +31,28 @@ export default class LineUp extends Component {
   }
 }
 
+export default connect()(LineUp);
+
 const styles = StyleSheet.create({
   container: {
     flex: 1,
     marginTop: 22,
     alignItems: 'center',
-    backgroundColor: '#000'
+    backgroundColor: '#000',
   },
   showDays: {
     flex: 2.2,
     marginTop: 10,
-    alignItems: 'center'
+    alignItems: 'center',
   },
   artistList: {
     flex: 8,
     justifyContent: 'center',
-    padding: 5
+    padding: 5,
   },
   showStages: {
     flex: 0.6,
     justifyContent: 'flex-end',
-    marginBottom: 5
-  }
+    marginBottom: 5,
+  },
 });

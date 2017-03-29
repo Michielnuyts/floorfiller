@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { AsyncStorage } from 'react-native';
 import Navigator from '~/containers/Navigator';
 import { createStore, combineReducers, compose, applyMiddleware } from 'redux';
 import devTools from 'remote-redux-devtools';
@@ -8,7 +9,7 @@ import * as reducers from './redux';
 
 const store = createStore(
   combineReducers(reducers),
-  compose(applyMiddleware(thunk), devTools())
+  compose(applyMiddleware(thunk), devTools()),
 );
 
 export default class App extends Component {
