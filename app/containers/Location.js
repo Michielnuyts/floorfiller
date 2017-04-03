@@ -1,4 +1,4 @@
-import React, {PropTypes, Component} from 'react';
+import React, {Component} from 'react';
 import {View, Text, StyleSheet} from 'react-native';
 import FloatingMenuButton from '~/components/FloatingMenuButton';
 import GoogleMap from '~/components/GoogleMap';
@@ -15,6 +15,7 @@ export default class Location extends Component {
         </View>
         <View style={styles.mapView}>
           <GoogleMap />
+
         </View>
       </View>
     );

@@ -6,5 +6,18 @@
     "vscode_custom_css.imports": [
         "file:///Users/Michielnuyts/Desktop/styles.css"
     ],
-    "editor.fontSize": 16
+    "editor.fontSize": 16,
+    "window.zoomLevel": 1,
+    "workbench.colorTheme": "Material Theme",
+    "workbench.iconTheme": "vscode-icons",
+    "files.exclude": {
+        "**/.git": true,
+        "**/.svn": true,
+        "**/.hg": true,
+        "**/.DS_Store": true,
+        "**/largeFolder": true
+    },
+    "singleQuote": true,
+    "jsxBracketSameLine": true,
+    "trailingComma": "es5",
 }
