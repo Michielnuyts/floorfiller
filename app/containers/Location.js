@@ -1,12 +1,10 @@
-import React, { PropTypes, Component } from 'react';
-import { View, Text, StyleSheet } from 'react-native';
+import React, {PropTypes, Component} from 'react';
+import {View, Text, StyleSheet} from 'react-native';
 import FloatingMenuButton from '~/components/FloatingMenuButton';
 import GoogleMap from '~/components/GoogleMap';
-import { platform, dimensions } from '~/styles';
+import {platform, dimensions} from '~/styles';
 
 export default class Location extends Component {
-  static propTypes = {};
-  state = {};
   render() {
     return (
       <View style={styles.container}>
@@ -39,7 +37,6 @@ const styles = StyleSheet.create({
   mapView: {
     flex: 8.6,
     justifyContent: 'center',
-    padding: 5,
     width: dimensions.screenWidth - 10,
     borderWidth: 3,
     borderColor: '#00FFA8',
