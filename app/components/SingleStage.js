@@ -5,7 +5,7 @@ import * as Animatable from 'react-native-animatable';
 SingleDay.propTypes = {
   children: PropTypes.string.isRequired,
   showActiveIcon: PropTypes.bool.isRequired,
-  onPress: PropTypes.func.isRequired
+  onPress: PropTypes.func.isRequired,
 };
 
 export default function SingleDay(props) {
@@ -32,19 +32,21 @@ export default function SingleDay(props) {
 const styles = StyleSheet.create({
   container: {
     justifyContent: 'center',
-    alignItems: 'center'
+    alignItems: 'center',
   },
   tab: {
     alignItems: 'center',
     borderTopWidth: 3,
     padding: 4,
-    marginBottom: 0
+    paddingLeft: 7,
+    paddingRight: 7,
+    marginBottom: 0,
   },
   tabActive: {
-    borderColor: 'rgba(255, 255, 255, 1)'
+    borderColor: 'rgba(255, 255, 255, 1)',
   },
   text: {
     fontSize: 14,
-    color: '#fff'
-  }
+    color: '#fff',
+  },
 });

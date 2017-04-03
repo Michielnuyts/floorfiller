@@ -13,6 +13,7 @@ export default class Location extends Component {
         <View style={styles.header}>
           <FloatingMenuButton onPress={this.props.onPress} />
           <Text style={styles.text}>Find Our Festival</Text>
+          <Text style={styles.textSmall}>Kasteelstraat 6, 3740 Bilzen</Text>
         </View>
         <View style={styles.mapView}>
           <GoogleMap />
@@ -49,7 +50,10 @@ const styles = StyleSheet.create({
     color: '#fff',
     fontWeight: '200',
     fontSize: 18,
-    textShadowColor: '#000',
-    textShadowOffset: { width: 1.5, height: 1.5 },
+  },
+  textSmall: {
+    color: '#fff',
+    fontWeight: '100',
+    fontSize: 13,
   },
 });

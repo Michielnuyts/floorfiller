@@ -38,18 +38,18 @@ class ShowStages extends Component {
 const styles = StyleSheet.create({
   container: {
     flexDirection: 'row',
-    justifyContent: 'space-between',
+    justifyContent: 'center',
     alignItems: 'flex-end',
     width: dimensions.screenWidth - 20,
     marginRight: 10,
-    marginLeft: 10
-  }
+    marginLeft: 10,
+  },
 });
 
 const mapStateToProps = ({ lineupMenu }) => {
   return {
     activeStage: lineupMenu.activeStageTab,
-    activeDay: lineupMenu.activeDayTab
+    activeDay: lineupMenu.activeDayTab,
   };
 };
 
