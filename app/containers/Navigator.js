@@ -11,19 +11,26 @@ export default class Navigator extends Component {
   openDrawer = () => {
     this._drawer.open();
   };
+  getChildContext() {
+    return { openDrawer: this.openDrawer };
+  }
   render() {
     return (
       <Drawer
         ref={ref => this._drawer = ref}
         content={<Menu closeDrawer={this.closeDrawer} />}
-        openDrawerOffset={dimensions.screenWidth - 200}
+        openDrawerOffset={Math.floor(dimensions.screenWidth) - 200}
         styles={drawerStyles}
         tapToClose>
-        <NavigationRouter openDrawer={this.openDrawer} />
+        <NavigationRouter />
       </Drawer>
     );
   }
 }
+
+Navigator.childContextTypes = {
+  openDrawer: React.PropTypes.func,
+};
 
 const drawerStyles = {
   drawer: { shadowColor: '#fff', shadowOpacity: 0.8, shadowRadius: 3 },

@@ -1,7 +1,8 @@
 import React, { PropTypes, Component } from 'react';
-import { View, Text, StyleSheet } from 'react-native';
+import { View, Text, StyleSheet, WebView } from 'react-native';
 import FloatingMenuButton from '~/components/FloatingMenuButton';
 import SingleTicketPanel from '~/components/SingleTicketPanel';
+import { platform, dimensions } from '~/styles';
 
 export default class Tickets extends Component {
   static propTypes = {};
@@ -24,13 +25,20 @@ export default class Tickets extends Component {
       { text: 'Camping Ticket €20', smallText: '' },
     ];
   }
-  render() {
-    return (
-      <View style={styles.container}>
-        <View style={styles.header}>
-          <FloatingMenuButton onPress={this.props.onPress} />
-          <Text style={styles.text}>Tickets</Text>
+  renderHelper() {
+    if (this.state.pressed) {
+      return (
+        <View style={styles.ticketList}>
+          <WebView
+            style={styles.webview}
+            source={{
+              uri: 'https://tibbaa.com/order/kg6fwzncw6?lang=en',
+            }}
+          />
         </View>
+      );
+    } else {
+      return (
         <View style={styles.ticketList}>
           {this.ticketData().map((ticket, i) => (
             <SingleTicketPanel
@@ -41,6 +49,17 @@ export default class Tickets extends Component {
             />
           ))}
         </View>
+      );
+    }
+  }
+  render() {
+    return (
+      <View style={styles.container}>
+        <View style={styles.header}>
+          <FloatingMenuButton onPress={this.props.onPress} />
+          <Text style={styles.text}>Tickets</Text>
+        </View>
+        {this.renderHelper()}
       </View>
     );
   }
@@ -49,7 +68,7 @@ export default class Tickets extends Component {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    marginTop: 22,
+    marginTop: dimensions.marginTop[platform],
     alignItems: 'center',
     backgroundColor: '#000',
   },
@@ -74,5 +93,9 @@ const styles = StyleSheet.create({
   bold: {
     fontWeight: 'bold',
     marginBottom: 15,
+  },
+  webview: {
+    flex: 1,
+    width: dimensions.screenWidth - 10,
   },
 });

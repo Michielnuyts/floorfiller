@@ -1,4 +1,4 @@
-import React, { PropTypes } from 'react';
+import React, { Component, PropTypes } from 'react';
 import { View, StyleSheet, Text } from 'react-native';
 import { Scene, Router } from 'react-native-router-flux';
 import LineUp from '~/containers/LineUp';
@@ -6,48 +6,54 @@ import Location from '~/containers/Location';
 import Tickets from '~/containers/Tickets';
 import Favorites from '~/containers/Favorites';
 import SocialMedia from '~/containers/SocialMedia';
+import { platform, dimensions } from '~/styles';
 
-NavigationRouter.propTypes = {};
-
-export default function NavigationRouter(props) {
-  return (
-    <Router>
-      <Scene key="root" sceneStyle={styles.mainAppStyle}>
-        <Scene
-          key="Lineup"
-          component={LineUp}
-          onPress={props.openDrawer}
-          initial
-          hideNavBar
-        />
-        <Scene
-          key="Tickets"
-          component={Tickets}
-          onPress={props.openDrawer}
-          hideNavBar
-        />
-        <Scene
-          key="Location"
-          component={Location}
-          onPress={props.openDrawer}
-          hideNavBar
-        />
-        <Scene
-          key="SocialMedia"
-          component={SocialMedia}
-          onPress={props.openDrawer}
-          hideNavBar
-        />
-        <Scene
-          key="Favorites"
-          component={Favorites}
-          onPress={props.openDrawer}
-          hideNavBar
-        />
-      </Scene>
-    </Router>
-  );
+export default class NavigationRouter extends Component {
+  shouldComponentUpdate() {
+    return false;
+  }
+  render() {
+    console.log('NavigationRouter Rendered');
+    return (
+      <Router>
+        <Scene key="root" sceneStyle={styles.mainAppStyle}>
+          <Scene
+            key="Lineup"
+            component={LineUp}
+            onPress={this.context.openDrawer}
+            initial
+            hideNavBar
+          />
+          <Scene
+            key="Tickets"
+            component={Tickets}
+            onPress={this.context.openDrawer}
+            hideNavBar
+          />
+          <Scene
+            key="Location"
+            component={Location}
+            onPress={this.context.openDrawer}
+            hideNavBar
+          />
+          <Scene
+            key="SocialMedia"
+            component={SocialMedia}
+            onPress={this.context.openDrawer}
+            hideNavBar
+          />
+          <Scene
+            key="Favorites"
+            component={Favorites}
+            onPress={this.context.openDrawer}
+            hideNavBar
+          />
+        </Scene>
+      </Router>
+    );
+  }
 }
+NavigationRouter.contextTypes = { openDrawer: PropTypes.func.isRequired };
 
 const styles = StyleSheet.create({
   mainAppStyle: {

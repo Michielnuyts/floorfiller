@@ -2,7 +2,7 @@ import React, { PropTypes, Component } from 'react';
 import { View, Text, StyleSheet } from 'react-native';
 import FloatingMenuButton from '~/components/FloatingMenuButton';
 import GoogleMap from '~/components/GoogleMap';
-import { dimensions } from '~/styles';
+import { platform, dimensions } from '~/styles';
 
 export default class Location extends Component {
   static propTypes = {};
@@ -25,7 +25,7 @@ export default class Location extends Component {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    marginTop: 22,
+    marginTop: dimensions.marginTop[platform],
     alignItems: 'center',
     backgroundColor: '#000',
   },

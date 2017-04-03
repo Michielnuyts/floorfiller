@@ -39,13 +39,14 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     justifyContent: 'space-around',
     alignItems: 'flex-end',
-    width: width
-  }
+    width: width,
+    backgroundColor: 'rgba(0, 0, 0, 0)',
+  },
 });
 
 const mapStateToProps = ({ lineupMenu }) => {
   return {
-    activeDay: lineupMenu.activeDayTab
+    activeDay: lineupMenu.activeDayTab,
   };
 };
 

@@ -33,23 +33,29 @@ class SingleArtistPanel extends Component {
           resizeMode="cover"
           source={require('../images/cashmere.png')}>
 
-          <View style={styles.artistTextInfo}>
-            <Animatable.Text
-              animation="rubberBand"
-              delay={1200}
-              style={styles.artistTitle}>
+          <Animatable.View
+            animation="rubberBand"
+            delay={1200}
+            style={styles.artistTextInfo}>
+            <Text style={styles.artistTitle}>
               {this.props.artistName}
-            </Animatable.Text>
-          </View>
+            </Text>
+          </Animatable.View>
 
           <View style={styles.playInfo}>
-            <Animatable.View animation="bounceIn" delay={500}>
+            <Animatable.View
+              style={styles.blackBG}
+              animation="bounceIn"
+              delay={500}>
               <Text style={styles.playtime}>
                 {this.props.startTime} - {this.props.endTime}
               </Text>
             </Animatable.View>
 
-            <Animatable.View animation="bounceIn" delay={500}>
+            <Animatable.View
+              style={styles.blackBG}
+              animation="bounceIn"
+              delay={500}>
               <Text style={styles.untilText}>
                 Starts in 10 minutes
               </Text>
@@ -105,5 +111,8 @@ const styles = StyleSheet.create({
   untilText: {
     color: '#fff',
     fontSize: 12,
+  },
+  blackBG: {
+    backgroundColor: '#000',
   },
 });

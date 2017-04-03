@@ -2,6 +2,7 @@ import React, { PropTypes } from 'react';
 import { View, StyleSheet, Text, TouchableOpacity, Image } from 'react-native';
 import { Actions } from 'react-native-router-flux';
 import MenuItem from '~/components/MenuItem';
+import { dimensions, platform } from '~/styles';
 
 Menu.propTypes = {
   closeDrawer: PropTypes.func.isRequired,
@@ -16,6 +17,7 @@ export default function Menu(props) {
   };
   handleLocation = () => {
     Actions.Location({ type: 'reset' });
+    console.log('clicked on Location');
   };
   handleTickets = () => {
     Actions.Tickets({ type: 'reset' });
@@ -57,7 +59,7 @@ export default function Menu(props) {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    marginTop: 22,
+    marginTop: dimensions.marginTop[platform],
     alignItems: 'stretch',
   },
 });

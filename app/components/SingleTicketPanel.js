@@ -1,6 +1,7 @@
 import React, { PropTypes } from 'react';
 import { View, StyleSheet, Text, TouchableOpacity } from 'react-native';
 import * as Animatable from 'react-native-animatable';
+import { dimensions } from '~/styles';
 
 SingleTicketPanel.propTypes = {
   text: PropTypes.string.isRequired,

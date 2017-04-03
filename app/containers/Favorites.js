@@ -5,6 +5,7 @@ import ShowDays from '~/components/ShowDays';
 import ShowStages from '~/components/ShowStages';
 import FavoriteArtistList from '~/containers/FavoriteArtistList';
 import FloatingMenuButton from '~/components/FloatingMenuButton';
+import { platform, dimensions } from '~/styles';
 
 class Favorites extends Component {
   render() {
@@ -28,7 +29,7 @@ export default connect()(Favorites);
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    marginTop: 22,
+    marginTop: dimensions.marginTop[platform],
     alignItems: 'center',
     backgroundColor: '#000',
   },
