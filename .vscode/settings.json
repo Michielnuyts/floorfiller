@@ -8,7 +8,7 @@
     ],
     "editor.fontSize": 16,
     "window.zoomLevel": 1,
-    "workbench.colorTheme": "Material Theme",
+    "workbench.colorTheme": "Atom One Dark",
     "workbench.iconTheme": "vscode-icons",
     "files.exclude": {
         "**/.git": true,
@@ -17,7 +17,8 @@
         "**/.DS_Store": true,
         "**/largeFolder": true
     },
-    "singleQuote": true,
-    "jsxBracketSameLine": true,
-    "trailingComma": "es5",
+    "prettier.singleQuote": true,
+    "prettier.jsxBracketSameLine": true,
+    "prettier.trailingComma": "es5",
+    "eslint.enable": false
 }

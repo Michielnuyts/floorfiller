@@ -1,8 +1,8 @@
-import React, { Component } from "react";
-import { dimensions } from "~/styles";
-import NavigationRouter from "~/containers/NavigationRouter";
-import Drawer from "react-native-drawer";
-import Menu from "~/components/Menu";
+import React, { Component } from 'react';
+import { dimensions } from '~/styles';
+import NavigationRouter from '~/containers/NavigationRouter';
+import Drawer from 'react-native-drawer';
+import Menu from '~/components/Menu';
 
 export default class Navigator extends Component {
   closeDrawer = () => {
@@ -21,8 +21,7 @@ export default class Navigator extends Component {
         content={<Menu closeDrawer={this.closeDrawer} />}
         openDrawerOffset={Math.floor(dimensions.screenWidth) - 200}
         styles={drawerStyles}
-        tapToClose
-      >
+        tapToClose>
         <NavigationRouter />
       </Drawer>
     );
@@ -30,10 +29,10 @@ export default class Navigator extends Component {
 }
 
 Navigator.childContextTypes = {
-  openDrawer: React.PropTypes.func
+  openDrawer: React.PropTypes.func,
 };
 
 const drawerStyles = {
-  drawer: { shadowColor: "#fff", shadowOpacity: 0.8, shadowRadius: 3 },
-  main: { paddingLeft: 0 }
+  drawer: { shadowColor: '#fff', shadowOpacity: 0.8, shadowRadius: 3 },
+  main: { paddingLeft: 0 },
 };

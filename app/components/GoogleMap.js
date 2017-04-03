@@ -36,5 +36,3 @@ const styles = StyleSheet.create({
     ...StyleSheet.absoluteFillObject,
   },
 });
-
-50.841707, 5.520720;
