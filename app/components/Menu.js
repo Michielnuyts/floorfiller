@@ -1,8 +1,16 @@
 import React, { PropTypes } from 'react';
-import { View, StyleSheet, Text, TouchableOpacity, Image } from 'react-native';
+import {
+  View,
+  StyleSheet,
+  Text,
+  TouchableOpacity,
+  Image,
+  Linking,
+} from 'react-native';
 import { Actions } from 'react-native-router-flux';
 import MenuItem from '~/components/MenuItem';
 import { dimensions, platform } from '~/styles';
+import Icon from 'react-native-vector-icons/Ionicons';
 
 Menu.propTypes = {
   closeDrawer: PropTypes.func.isRequired,
@@ -17,13 +25,18 @@ export default function Menu(props) {
   };
   handleLocation = () => {
     Actions.Location({ type: 'reset' });
-    console.log('clicked on Location');
   };
   handleTickets = () => {
     Actions.Tickets({ type: 'reset' });
   };
   handleSocialMedia = () => {
     Actions.SocialMedia({ type: 'reset' });
+  };
+  handleFacebookIcon = () => {
+    Linking.openURL('https://www.facebook.com/FloorFillerBelgium');
+  };
+  handleInstagramIcon = () => {
+    Linking.openURL('https://www.instagram.com/floorfillerbelgium/');
   };
   return (
     <Image source={require('../images/drawer.png')} style={styles.container}>
@@ -47,11 +60,18 @@ export default function Menu(props) {
         closeDrawer={props.closeDrawer}
         buttonText="TICKETS"
       />
-      <MenuItem
-        onPress={this.handleSocialMedia}
-        closeDrawer={props.closeDrawer}
-        buttonText="SOCIAL MEDIA"
-      />
+      <View style={styles.socialMedia}>
+        <TouchableOpacity onPress={this.handleFacebookIcon}>
+          <Icon
+            style={[styles.icon, { marginRight: 15 }]}
+            name="logo-facebook"
+            size={60}
+          />
+        </TouchableOpacity>
+        <TouchableOpacity onPress={this.handleInstagramIcon}>
+          <Icon style={styles.icon} name="logo-instagram" size={60} />
+        </TouchableOpacity>
+      </View>
     </Image>
   );
 }
@@ -61,5 +81,18 @@ const styles = StyleSheet.create({
     flex: 1,
     marginTop: dimensions.marginTop[platform],
     alignItems: 'stretch',
+  },
+  socialMedia: {
+    backgroundColor: 'rgba(0, 0, 0, 0)',
+    flexDirection: 'row',
+    marginTop: 20,
+  },
+  icon: {
+    padding: 10,
+    color: '#fff',
+    shadowColor: '#000',
+    shadowOffset: { width: 2, height: 3 },
+    shadowRadius: 1,
+    shadowOpacity: 1,
   },
 });
