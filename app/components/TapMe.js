@@ -12,18 +12,18 @@ class TapMe extends Component {
       () => {
         this.setState({ opacity: 0 });
       },
-      1000
+      500
     );
   }
   render() {
     return (
       <Animatable.View
-        style={{ opacity: this.state.opacity }}
+        style={[styles.container, { opacity: this.state.opacity }]}
         animation="pulse"
         iterationCount="infinite">
         <Icon
-          style={{ color: '#fff' }}
-          name="arrow-left-bold-circle"
+          style={{ color: '#00FFA8' }}
+          name="arrow-down-bold-circle"
           size={35}
         />
         <Text style={styles.text}>Tap Me!</Text>
@@ -35,9 +35,15 @@ class TapMe extends Component {
 export default TapMe;
 
 const styles = StyleSheet.create({
+  container: {
+    flexDirection: 'column',
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
   text: {
-    color: '#fff',
-    fontWeight: '200',
-    marginLeft: 20,
+    color: '#00FFA8',
+    fontWeight: 'bold',
+    textShadowColor: '#000',
+    textShadowOffset: { width: 1, height: 1 },
   },
 });

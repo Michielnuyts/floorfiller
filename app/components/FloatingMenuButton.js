@@ -17,8 +17,10 @@ export default class FloatingMenuButton extends Component {
             style={{ width: 80, height: 80 }}
             source={require('../images/logo.png')}
           />
+          <View style={styles.tapMe}>
+            <TapMe />
+          </View>
         </TouchableOpacity>
-        <TapMe />
       </View>
     );
   }
@@ -32,5 +34,9 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     justifyContent: 'center',
     alignItems: 'center',
+  },
+  tapMe: {
+    position: 'absolute',
+    backgroundColor: 'rgba(0,0,0,0)',
   },
 });
