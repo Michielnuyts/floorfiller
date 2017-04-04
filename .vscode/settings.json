@@ -8,7 +8,7 @@
     ],
     "editor.fontSize": 16,
     "window.zoomLevel": 1,
-    "workbench.colorTheme": "Atom One Dark",
+    "workbench.colorTheme": "Material Theme",
     "workbench.iconTheme": "vscode-icons",
     "files.exclude": {
         "**/.git": true,
@@ -20,5 +20,16 @@
     "prettier.singleQuote": true,
     "prettier.jsxBracketSameLine": true,
     "prettier.trailingComma": "es5",
-    "eslint.enable": false
+    "eslint.enable": true,
+    "eslint.options": {
+        "react/jsx-filename-extension": [
+            0,
+            {
+                "extensions": [
+                    ".js",
+                    ".jsx"
+                ]
+            }
+        ]
+    }
 }

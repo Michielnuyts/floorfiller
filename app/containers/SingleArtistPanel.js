@@ -4,6 +4,7 @@ import * as Animatable from 'react-native-animatable';
 import { dimensions } from '~/styles';
 import { favoriteArtist, unFavoriteArtist } from '~/redux/modules/favorites';
 import { connect } from 'react-redux';
+import moment from 'moment';
 
 class SingleArtistPanel extends Component {
   static propTypes = {
@@ -22,6 +23,22 @@ class SingleArtistPanel extends Component {
     // depended on the bool value, favorite or unfavorite the
     // artistpanel that has been tapped
   };
+  calculateStartTime() {
+    let day = 20;
+    switch (this.props.day) {
+      case 'THURSDAY':
+        day = 20;
+      case 'FRIDAY':
+        day = 21;
+      case 'SATURDAY':
+        day = 22;
+      default:
+        day = 20;
+    }
+    const now = moment();
+    const future = moment(`2017-07-${day} ${this.props.startTime}`);
+    return now.to(future);
+  }
   render() {
     let favoriteStyle = this.props.favorites[this.props.artistName]
       ? { borderWidth: 5, borderColor: '#00FFA8' }
@@ -57,7 +74,7 @@ class SingleArtistPanel extends Component {
               animation="bounceIn"
               delay={500}>
               <Text style={styles.untilText}>
-                Starts in 10 minutes
+                Starts {this.calculateStartTime()}
               </Text>
             </Animatable.View>
           </View>

@@ -13,6 +13,11 @@ import { dimensions } from '~/styles';
 import { stages } from '~/config';
 
 class FavoriteArtistList extends Component {
+  static propTypes = {
+    artists: PropTypes.object.isRequired,
+    activeDay: PropTypes.string.isRequired,
+    favorites: PropTypes.object.isRequired,
+  };
   renderEachArtistPanel() {
     if (this.props.artists) {
       const stagesWithArtists = this.props.artists;
@@ -40,14 +45,13 @@ class FavoriteArtistList extends Component {
           );
         }
       });
-    } else {
-      return (
-        <View style={styles.loadingScreen}>
-          <ActivityIndicator />
-          <Text style={styles.loadingText}>Fetching Artists...</Text>
-        </View>
-      );
     }
+    return (
+      <View style={styles.loadingScreen}>
+        <ActivityIndicator />
+        <Text style={styles.loadingText}>Fetching Artists...</Text>
+      </View>
+    );
   }
   render() {
     return (
@@ -63,7 +67,6 @@ class FavoriteArtistList extends Component {
 const mapStateToProps = ({ artists, lineupMenu, favorites }) => {
   return {
     artists: artists.artists,
-    loadingArtists: artists.loadingArtists,
     activeDay: lineupMenu.activeDayTab,
     favorites,
   };
