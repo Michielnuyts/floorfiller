@@ -20,7 +20,7 @@
     "prettier.singleQuote": true,
     "prettier.jsxBracketSameLine": true,
     "prettier.trailingComma": "es5",
-    "eslint.enable": true,
+    "eslint.enable": false,
     "eslint.options": {
         "react/jsx-filename-extension": [
             0,

@@ -5,6 +5,7 @@ import LineUp from '~/containers/LineUp';
 import Location from '~/containers/Location';
 import Tickets from '~/containers/Tickets';
 import Favorites from '~/containers/Favorites';
+import SplashScreen from '~/containers/SplashScreen';
 import SocialMedia from '~/containers/SocialMedia';
 import { platform, dimensions } from '~/styles';
 
@@ -20,6 +21,12 @@ export default class NavigationRouter extends Component {
           <Scene
             key="Lineup"
             component={LineUp}
+            onPress={this.context.openDrawer}
+            hideNavBar
+          />
+          <Scene
+            key="SplashScreen"
+            component={SplashScreen}
             onPress={this.context.openDrawer}
             initial
             hideNavBar

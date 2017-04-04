@@ -17,9 +17,6 @@ export default class FloatingMenuButton extends Component {
             style={{ width: 80, height: 80 }}
             source={require('../images/logo.png')}
           />
-          <View style={styles.tapMe}>
-            <TapMe />
-          </View>
         </TouchableOpacity>
       </View>
     );
