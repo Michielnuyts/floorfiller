@@ -5,6 +5,8 @@ import { platform, dimensions } from '~/styles';
 import { Actions } from 'react-native-router-flux';
 import * as Animatable from 'react-native-animatable';
 
+import SplashNews from '~/components/SplashNews';
+
 export default class SplashScreen extends Component {
   handleSplashTap = () => {
     Actions.Lineup({ type: 'reset' });
@@ -13,12 +15,20 @@ export default class SplashScreen extends Component {
     return (
       <View style={styles.container}>
         <Animatable.View animation="bounceIn" style={styles.borderView}>
-          <Animatable.View animation="bounceIn" delay={2000}>
-            <FloatingMenuButton onPress={this.handleSplashTap} />
+          <Animatable.View delay={800} animation="bounceIn" style={styles.news}>
+            <SplashNews />
           </Animatable.View>
-          <Animatable.Text delay={800} animation="flipInY" style={styles.text}>
-            FloorFiller Festival
-          </Animatable.Text>
+          <View style={styles.logoContainer}>
+            <Animatable.View animation="bounceIn" delay={2000}>
+              <FloatingMenuButton onPress={this.handleSplashTap} />
+            </Animatable.View>
+            <Animatable.Text
+              delay={800}
+              animation="flipInY"
+              style={styles.text}>
+              FloorFiller Festival
+            </Animatable.Text>
+          </View>
         </Animatable.View>
       </View>
     );
@@ -32,11 +42,16 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     backgroundColor: '#000',
   },
-  header: {
-    flex: 2.2,
+  news: {
+    flex: 1,
     marginTop: 10,
     alignItems: 'center',
     backgroundColor: 'rgba(0, 0, 0, 0)',
+  },
+  logoContainer: {
+    flex: 2,
+    alignItems: 'center',
+    justifyContent: 'flex-start',
   },
   borderView: {
     justifyContent: 'center',
