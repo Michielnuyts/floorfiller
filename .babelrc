@@ -1,10 +1,13 @@
 {
   "presets": [
-    "react-native-stage-0"
+    "babel-preset-expo"
   ],
   "plugins": [
-    ["babel-plugin-root-import", {
-      "rootPathSuffix": "app"
-      }]
+    [
+      "babel-plugin-root-import",
+      {
+        "rootPathSuffix": "app"
+      }
+    ]
   ]
 }

@@ -1,4 +1,4 @@
-import { AppRegistry } from 'react-native';
 import App from './app/';
+import Expo from 'expo';
 
-AppRegistry.registerComponent('floorfiller', () => App);
+Expo.registerRootComponent(App);

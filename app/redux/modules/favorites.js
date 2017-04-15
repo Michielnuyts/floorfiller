@@ -41,7 +41,12 @@ export const setInitialStateFromAsyncstorage = () => {
         dispatch(pushToRedux(favoriteArtists.favorites));
       })
       .catch(error => {
-        console.log('oops', error);
+        console.log('oops, i fucked up right here.', error);
+        // Set an initial empty object for this key, this should prevent iOS
+        // app from crashing on launch.
+        asyncStore.save('favoriteArtists', {
+          favorites: {},
+        });
       });
   };
 };
