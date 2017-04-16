@@ -8,7 +8,7 @@
     ],
     "editor.fontSize": 16,
     "window.zoomLevel": 0,
-    "workbench.colorTheme": "Material Theme",
+    "workbench.colorTheme": "TwoStones",
     "workbench.iconTheme": "vscode-icons",
     "files.exclude": {
         "**/.git": true,

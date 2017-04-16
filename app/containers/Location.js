@@ -1,10 +1,18 @@
-import React, {Component} from 'react';
-import {View, Text, StyleSheet} from 'react-native';
+import React, { Component } from 'react';
+import { View, Text, StyleSheet } from 'react-native';
 import FloatingMenuButton from '~/components/FloatingMenuButton';
+import { platform, dimensions } from '~/styles';
+
 import GoogleMap from '~/components/GoogleMap';
-import {platform, dimensions} from '~/styles';
+import TextDirections from '~/components/TextDirections';
 
 export default class Location extends Component {
+  state = {
+    showTextDirections: false,
+  };
+  handleClick = () => {
+    this.setState({ showTextDirections: !this.state.showTextDirections });
+  };
   render() {
     return (
       <View style={styles.container}>
@@ -13,9 +21,12 @@ export default class Location extends Component {
           <Text style={styles.text}>Find Our Festival</Text>
           <Text style={styles.textSmall}>Kasteelstraat 6, 3740 Bilzen</Text>
         </View>
+        <TextDirections
+          onPress={this.handleClick}
+          showTextDirections={this.state.showTextDirections}
+        />
         <View style={styles.mapView}>
           <GoogleMap />
-
         </View>
       </View>
     );
@@ -36,7 +47,7 @@ const styles = StyleSheet.create({
     backgroundColor: 'rgba(0, 0, 0, 0)',
   },
   mapView: {
-    flex: 8.6,
+    flex: 7.6,
     justifyContent: 'center',
     width: dimensions.screenWidth - 10,
     borderWidth: 3,
