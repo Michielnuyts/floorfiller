@@ -1,25 +1,19 @@
 import React, { Component } from 'react';
 import { View, Text, StyleSheet } from 'react-native';
 import { platform, dimensions } from '~/styles';
+import { Actions } from 'react-native-router-flux';
+import { SlidesData } from '../config';
 
 import Slides from '../components/Slides';
 
-const SLIDE_DATA = [
-  { id: 1, text: 'Tap The Festival Logo!', imgUrl: '../images/slide1.png' },
-  {
-    id: 2,
-    text: 'Tap Artists to Favorite!',
-    text2: 'And Receive Notifications',
-    imgUrl: '../images/slide2.png',
-  },
-  { id: 3, text: 'Your Custom Lineup!', imgUrl: '../images/slide3.png' },
-];
-
 class LandingScreen extends Component {
+  handlePress = () => {
+    Actions.SplashScreen({ type: 'reset' });
+  };
   render() {
     return (
       <View style={styles.container}>
-        <Slides data={SLIDE_DATA} />
+        <Slides data={SlidesData} onPress={this.handlePress} />
       </View>
     );
   }
