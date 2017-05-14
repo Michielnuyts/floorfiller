@@ -8,6 +8,7 @@ import Favorites from '~/containers/Favorites';
 import SplashScreen from '~/containers/SplashScreen';
 import SocialMedia from '~/containers/SocialMedia';
 import LandingScreen from '../containers/LandingScreen';
+import FestivalMap from '../containers/FestivalMap';
 import { platform, dimensions } from '~/styles';
 
 export default class NavigationRouter extends Component {
@@ -35,6 +36,12 @@ export default class NavigationRouter extends Component {
           <Scene
             key="SplashScreen"
             component={SplashScreen}
+            onPress={this.context.openDrawer}
+            hideNavBar
+          />
+          <Scene
+            key="FestivalMap"
+            component={FestivalMap}
             onPress={this.context.openDrawer}
             hideNavBar
           />

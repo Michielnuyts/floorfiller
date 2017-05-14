@@ -29,6 +29,9 @@ export default function Menu(props) {
   handleTickets = () => {
     Actions.Tickets({ type: 'reset' });
   };
+  handleFestivalMap = () => {
+    Actions.FestivalMap({ type: 'reset' });
+  };
   handleSocialMedia = () => {
     Actions.SocialMedia({ type: 'reset' });
   };
@@ -49,6 +52,11 @@ export default function Menu(props) {
         onPress={this.handleFavorites}
         closeDrawer={props.closeDrawer}
         buttonText="MY FAVORITE ARTISTS"
+      />
+      <MenuItem
+        onPress={this.handleFestivalMap}
+        closeDrawer={props.closeDrawer}
+        buttonText="FESTIVAL MAP"
       />
       <MenuItem
         onPress={this.handleLocation}
