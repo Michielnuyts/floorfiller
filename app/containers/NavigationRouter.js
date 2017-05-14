@@ -7,6 +7,7 @@ import Tickets from '~/containers/Tickets';
 import Favorites from '~/containers/Favorites';
 import SplashScreen from '~/containers/SplashScreen';
 import SocialMedia from '~/containers/SocialMedia';
+import LandingScreen from '../containers/LandingScreen';
 import { platform, dimensions } from '~/styles';
 
 export default class NavigationRouter extends Component {
@@ -19,6 +20,13 @@ export default class NavigationRouter extends Component {
       <Router>
         <Scene key="root" sceneStyle={styles.mainAppStyle}>
           <Scene
+            key="Landing"
+            component={LandingScreen}
+            onPress={this.context.openDrawer}
+            hideNavBar
+            initial
+          />
+          <Scene
             key="Lineup"
             component={LineUp}
             onPress={this.context.openDrawer}
@@ -28,7 +36,6 @@ export default class NavigationRouter extends Component {
             key="SplashScreen"
             component={SplashScreen}
             onPress={this.context.openDrawer}
-            initial
             hideNavBar
           />
           <Scene
