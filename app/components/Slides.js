@@ -68,13 +68,12 @@ const styles = StyleSheet.create({
     padding: 5,
   },
   button: {
-    fontSize: 25,
-    fontWeight: '200',
+    fontSize: 20,
+    fontWeight: '300',
     color: '#fff',
   },
   containerStyle: {
     padding: 10,
-    height: 45,
     borderRadius: 4,
     backgroundColor: '#00FFA8',
     marginTop: 10,
