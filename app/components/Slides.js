@@ -1,20 +1,38 @@
 import React from 'react';
-import { View, Text, ScrollView, StyleSheet, Button } from 'react-native';
+import { View, Text, ScrollView, StyleSheet, Image } from 'react-native';
+import Button from 'react-native-button';
 import { platform, dimensions } from '~/styles';
 
 const Slides = ({ data, onPress }) => {
   renderLastSlide = index => {
     return index === data.length - 1
-      ? <Button onPress={onPress} title="Yep, Got It!" />
+      ? <Button
+          containerStyle={styles.containerStyle}
+          style={styles.button}
+          onPress={onPress}>
+          Yep, Got It!
+        </Button>
       : null;
   };
   renderSlides = () => {
+    const slideImages = {
+      0: require('../images/Slide1.png'),
+      1: require('../images/Slide2.png'),
+      2: require('../images/Slide2.png'),
+    };
     return data.map((slide, i) => {
       return (
         <View
           style={[styles.slide, { backgroundColor: slide.backgroundColor }]}
           key={slide.id}>
           <Text style={styles.text}>{slide.text}</Text>
+
+          <Image
+            style={styles.image}
+            resizeMode="cover"
+            source={slideImages[i]}
+          />
+
           <Text style={[styles.textSmall, { color: slide.color }]}>
             {slide.text2}
           </Text>
@@ -40,6 +58,26 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     width: dimensions.screenWidth,
     flex: 1,
+  },
+  image: {
+    width: dimensions.screenWidth - 20,
+    borderWidth: 3,
+    borderColor: '#fff',
+    marginBottom: 5,
+    marginTop: 5,
+    padding: 5,
+  },
+  button: {
+    fontSize: 25,
+    fontWeight: '200',
+    color: '#fff',
+  },
+  containerStyle: {
+    padding: 10,
+    height: 45,
+    borderRadius: 4,
+    backgroundColor: '#00FFA8',
+    marginTop: 10,
   },
   text: {
     marginTop: 20,

@@ -39,9 +39,9 @@ class SplashScreen extends Component {
               style={styles.text}>
               FloorFiller Festival
             </Animatable.Text>
-            {this.props.firstBoot
+            {/* this.props.firstBoot
               ? <Text style={styles.text}>Yep</Text>
-              : <Text style={styles.text}>Nope</Text>}
+              : <Text style={styles.text}>Nope</Text>*/}
           </View>
         </Animatable.View>
       </View>

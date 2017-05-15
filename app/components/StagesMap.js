@@ -4,8 +4,8 @@ import MapView from 'react-native-maps';
 
 const stageLocations = [
   { lat: 50.841707, long: 5.520720, title: 'FloorFiller Stage' },
-  { lat: 50.881707, long: 5.720720, title: 'Labyrinth Stage' },
-  { lat: 50.991707, long: 5.890720, title: 'AFTR Stage' },
+  { lat: 50.841071, long: 5.521213, title: 'Labyrinth Stage' },
+  { lat: 50.841906, long: 5.522342, title: 'AFTR Stage' },
 ];
 
 const GoogleMaps = () => {
