@@ -33,7 +33,7 @@ export const SlidesData = [
   },
   {
     id: 2,
-    text: 'Tap Artists to Favorite!',
+    text: 'Double Tap Artists to Favorite!',
     text2: 'And Receive Notifications',
     imgUrl: '../images/Slide2.png',
     backgroundColor: '#00FFA8',
