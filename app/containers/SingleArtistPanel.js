@@ -7,6 +7,8 @@ import { connect } from 'react-redux';
 import moment from 'moment';
 import DoubleClick from 'react-native-double-click';
 
+import { resources } from '../config/artistResources';
+
 class SingleArtistPanel extends Component {
   static propTypes = {
     artistName: PropTypes.string.isRequired,
@@ -22,7 +24,7 @@ class SingleArtistPanel extends Component {
       ? this.props.dispatch(unFavoriteArtist(artistName))
       : this.props.dispatch(favoriteArtist(artistName));
     // depended on the bool value, favorite or unfavorite the
-    // artistpanel that has been tapped
+    // artistpanel that has been double tapped
   };
   calculateStartTime() {
     let day = 20;
@@ -49,7 +51,7 @@ class SingleArtistPanel extends Component {
         <Image
           style={[styles.container, favoriteStyle]}
           resizeMode="cover"
-          source={require('../images/cashmere.png')}>
+          source={resources[this.props.artistName.split(' ').join('')]}>
 
           <Animatable.View
             animation="rubberBand"

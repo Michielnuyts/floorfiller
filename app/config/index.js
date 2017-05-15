@@ -33,7 +33,7 @@ export const SlidesData = [
   },
   {
     id: 2,
-    text: 'Double Tap Artists to Favorite!',
+    text: 'Double Tap to Favorite!',
     text2: 'And Receive Notifications',
     imgUrl: '../images/Slide2.png',
     backgroundColor: '#00FFA8',
@@ -48,3 +48,9 @@ export const SlidesData = [
     color: '#fff',
   },
 ];
+
+export const getImageURL = artist => {
+  const formattedArtistName = artist.split(' ').join('');
+  const URLstring = `../images/artists/${formattedArtistName}.png`;
+  return URLstring;
+};
