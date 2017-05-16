@@ -1,4 +1,5 @@
 import asyncStore from 'react-native-simple-store';
+import moment from 'moment';
 
 export const stages = {
   THURSDAY: ['JOYHAUSER INVITES'],
@@ -12,12 +13,12 @@ export const checkIfFirstBoot = () => {
   asyncStore
     .get('firstBoot')
     .then(firstBoot => {
-      console.log('Someone called me cc');
+      console.log('I have been booted before');
       return false; // App already been booted before
     })
     .catch(error => {
       asyncStore.save('firstBoot', { firstBoot: true });
-      console.log('Someone called me');
+      console.log('This is my first boot');
       return true; // This is the first bootup
     });
 };
@@ -33,7 +34,7 @@ export const SlidesData = [
   },
   {
     id: 2,
-    text: 'Double Tap to Favorite!',
+    text: 'Long Press to Favorite!',
     text2: 'And Receive Notifications',
     imgUrl: '../images/Slide2.png',
     backgroundColor: '#00FFA8',
@@ -53,4 +54,21 @@ export const getImageURL = artist => {
   const formattedArtistName = artist.split(' ').join('');
   const URLstring = `../images/artists/${formattedArtistName}.png`;
   return URLstring;
+};
+
+export const calculateStartTime = (dayFromProps, startTime) => {
+  let day = 20;
+  switch (dayFromProps) {
+    case 'THURSDAY':
+      day = 20;
+    case 'FRIDAY':
+      day = 21;
+    case 'SATURDAY':
+      day = 22;
+    default:
+      day = 20;
+  }
+  const now = moment();
+  const future = moment(`2017-07-${day} ${startTime}`);
+  return `Starts ${now.to(future)}`;
 };

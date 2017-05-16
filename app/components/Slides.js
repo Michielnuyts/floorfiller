@@ -9,7 +9,8 @@ const Slides = ({ data, onPress }) => {
       ? <Button
           containerStyle={styles.containerStyle}
           style={styles.button}
-          onPress={onPress}>
+          onPress={onPress}
+        >
           Yep, Got It!
         </Button>
       : null;
@@ -24,7 +25,8 @@ const Slides = ({ data, onPress }) => {
       return (
         <View
           style={[styles.slide, { backgroundColor: slide.backgroundColor }]}
-          key={slide.id}>
+          key={slide.id}
+        >
           <Text style={styles.text}>{slide.text}</Text>
 
           <Image
