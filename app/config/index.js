@@ -9,17 +9,21 @@ export const stages = {
 
 // Check if the app is opening for the first time on the device.
 // So we can show a first time boot help message.
-export const checkIfFirstBoot = () => {
-  asyncStore
-    .get('firstBoot')
-    .then(firstBoot => {
-      console.log('I have been booted before');
-      return false; // App already been booted before
+export const firstBoot = async () => {
+  await asyncStore
+    .get('alreadyLaunched')
+    .then(value => {
+      if (value == null) {
+        asyncStore.save('alreadyLaunched', true);
+        console.log('This is my first boot!');
+        return true;
+      } else {
+        console.log('I have been booted before!');
+        return false;
+      }
     })
     .catch(error => {
-      asyncStore.save('firstBoot', { firstBoot: true });
-      console.log('This is my first boot');
-      return true; // This is the first bootup
+      console.log('Error');
     });
 };
 

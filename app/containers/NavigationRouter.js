@@ -12,11 +12,9 @@ import FestivalMap from '../containers/FestivalMap';
 import { platform, dimensions } from '~/styles';
 
 export default class NavigationRouter extends Component {
-  shouldComponentUpdate() {
-    return false;
-  }
   render() {
-    console.log('NavigationRouter Rendered');
+    const { initialScreen } = this.props;
+    console.log(initialScreen);
     return (
       <Router>
         <Scene key="root" sceneStyle={styles.mainAppStyle}>
@@ -25,7 +23,7 @@ export default class NavigationRouter extends Component {
             component={LandingScreen}
             onPress={this.context.openDrawer}
             hideNavBar
-            initial
+            initial={initialScreen === 'LandingScreen' ? true : false}
           />
           <Scene
             key="Lineup"
@@ -38,6 +36,7 @@ export default class NavigationRouter extends Component {
             component={SplashScreen}
             onPress={this.context.openDrawer}
             hideNavBar
+            initial={initialScreen === 'SplashScreen' ? true : false}
           />
           <Scene
             key="FestivalMap"

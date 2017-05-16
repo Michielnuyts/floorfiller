@@ -30,7 +30,7 @@ const ArtistInfo = ({ day, startTime, endTime, artistName }) => {
 
       <Animatable.View
         animation="bounceIn"
-        delay={1800}
+        delay={1500}
         style={styles.artistTextInfo}>
         <Text style={styles.artistTitle}>
           {artistName}

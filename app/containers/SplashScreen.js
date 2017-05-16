@@ -4,20 +4,10 @@ import FloatingMenuButton from '~/components/FloatingMenuButton';
 import { platform, dimensions } from '~/styles';
 import { Actions } from 'react-native-router-flux';
 import * as Animatable from 'react-native-animatable';
-import { connect } from 'react-redux';
-import { updateFirstBootState } from '../redux/modules/boot';
 
 import SplashNews from '~/components/SplashNews';
-import { checkIfFirstBoot } from '../config';
 
 class SplashScreen extends Component {
-  componentWillMount() {
-    if (checkIfFirstBoot()) {
-      this.props.dispatch(updateFirstBootState(true));
-    } else {
-      this.props.dispatch(updateFirstBootState(false));
-    }
-  }
   handleSplashTap = () => {
     Actions.Lineup({ type: 'reset' });
   };
@@ -49,13 +39,7 @@ class SplashScreen extends Component {
   }
 }
 
-const mapStateToProps = state => {
-  return {
-    firstBoot: state.boot.firstBoot,
-  };
-};
-
-export default connect(mapStateToProps)(SplashScreen);
+export default SplashScreen;
 
 const styles = StyleSheet.create({
   container: {

@@ -17,12 +17,12 @@ export default class Navigator extends Component {
   render() {
     return (
       <Drawer
-        ref={ref => this._drawer = ref}
+        ref={ref => (this._drawer = ref)}
         content={<Menu closeDrawer={this.closeDrawer} />}
         openDrawerOffset={Math.floor(dimensions.screenWidth) - 200}
         styles={drawerStyles}
         tapToClose>
-        <NavigationRouter />
+        <NavigationRouter initialScreen={this.props.initialScreen} />
       </Drawer>
     );
   }

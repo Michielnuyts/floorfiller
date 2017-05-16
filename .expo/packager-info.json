@@ -1,8 +1,8 @@
 {
-  "expoServerPort": 19000,
-  "packagerPort": 19002,
-  "packagerPid": 69378,
-  "expoServerNgrokUrl": "https://wm-h8r.michielnuyts.floorfiller.exp.direct",
-  "packagerNgrokUrl": "https://packager.wm-h8r.michielnuyts.floorfiller.exp.direct",
-  "ngrokPid": 69397
+  "expoServerPort": null,
+  "packagerPort": null,
+  "packagerPid": null,
+  "expoServerNgrokUrl": null,
+  "packagerNgrokUrl": null,
+  "ngrokPid": null
 }
