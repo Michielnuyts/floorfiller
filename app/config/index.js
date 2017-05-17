@@ -23,7 +23,7 @@ export const firstBoot = async () => {
       }
     })
     .catch(error => {
-      console.log('Error');
+      console.log(error);
     });
 };
 
@@ -65,10 +65,13 @@ export const calculateStartTime = (dayFromProps, startTime) => {
   switch (dayFromProps) {
     case 'THURSDAY':
       day = 20;
+      break;
     case 'FRIDAY':
       day = 21;
+      break;
     case 'SATURDAY':
       day = 22;
+      break;
     default:
       day = 20;
   }

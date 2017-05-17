@@ -1,10 +1,9 @@
-import React, { PropTypes, Component } from 'react';
-import { View, Text, StyleSheet, Image, TouchableOpacity } from 'react-native';
-import * as Animatable from 'react-native-animatable';
+import React, { Component } from 'react';
+import { StyleSheet, Image, TouchableOpacity } from 'react-native';
 import { dimensions } from '~/styles';
 import { favoriteArtist, unFavoriteArtist } from '~/redux/modules/favorites';
 import { connect } from 'react-redux';
-import DoubleClick from 'react-native-double-click';
+import PropTypes from 'prop-types';
 
 import { resources } from '../config/artistResources';
 import ArtistInfo from '../components/ArtistInfo';
@@ -15,6 +14,8 @@ class SingleArtistPanel extends Component {
     artistName: PropTypes.string.isRequired,
     startTime: PropTypes.string.isRequired,
     endTime: PropTypes.string.isRequired,
+    favorites: PropTypes.object,
+    dispatch: PropTypes.func.isRequired,
   };
   state = {
     loadingImage: false,
@@ -40,8 +41,8 @@ class SingleArtistPanel extends Component {
         <Image
           style={[styles.container, favoriteStyle]}
           resizeMode="cover"
-          onLoadStart={e => this.setState({ loadingImage: true })}
-          onLoadEnd={e => this.setState({ loadingImage: false })}
+          onLoadStart={() => this.setState({ loadingImage: true })}
+          onLoadEnd={() => this.setState({ loadingImage: false })}
           source={resources[this.props.artistName.split(' ').join('')]}>
 
           {this.state.loadingImage

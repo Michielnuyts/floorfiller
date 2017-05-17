@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import { AsyncStorage } from 'react-native';
 import Navigator from '~/containers/Navigator';
 import { createStore, combineReducers, compose, applyMiddleware } from 'redux';
 import devTools from 'remote-redux-devtools';

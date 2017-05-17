@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { View, Text, StyleSheet } from 'react-native';
+import { View, StyleSheet } from 'react-native';
 import { platform, dimensions } from '~/styles';
 import { Actions } from 'react-native-router-flux';
 import { SlidesData } from '../config';

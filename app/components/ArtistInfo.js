@@ -1,6 +1,7 @@
-import React, { PropTypes } from 'react';
+import React from 'react';
 import { View, Text, StyleSheet } from 'react-native';
 import * as Animatable from 'react-native-animatable';
+import PropTypes from 'prop-types';
 
 import { dimensions } from '~/styles';
 import { calculateStartTime } from '../config';
@@ -41,7 +42,12 @@ const ArtistInfo = ({ day, startTime, endTime, artistName }) => {
   );
 };
 
-ArtistInfo.propTypes = {};
+ArtistInfo.propTypes = {
+  day: PropTypes.string.isRequired,
+  startTime: PropTypes.string.isRequired,
+  endTime: PropTypes.string.isRequired,
+  artistName: PropTypes.string.isRequired,
+};
 
 export default ArtistInfo;
 

@@ -1,7 +1,8 @@
-import React, { PropTypes } from 'react';
+import React from 'react';
 import { View, Text, StyleSheet } from 'react-native';
 import * as Animatable from 'react-native-animatable';
 import { dimensions } from '~/styles';
+import PropTypes from 'prop-types';
 
 const FetchingArtistIndicator = ({ artistName }) => {
   return (
@@ -20,7 +21,9 @@ const FetchingArtistIndicator = ({ artistName }) => {
   );
 };
 
-FetchingArtistIndicator.propTypes = {};
+FetchingArtistIndicator.propTypes = {
+  artistName: PropTypes.string.isRequired,
+};
 
 export default FetchingArtistIndicator;
 

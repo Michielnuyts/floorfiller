@@ -1,6 +1,7 @@
-import React, { Component, PropTypes } from 'react';
-import { View, StyleSheet, Text } from 'react-native';
+import React, { Component } from 'react';
+import { StyleSheet } from 'react-native';
 import { Scene, Router } from 'react-native-router-flux';
+import PropTypes from 'prop-types';
 import LineUp from '~/containers/LineUp';
 import Location from '~/containers/Location';
 import Tickets from '~/containers/Tickets';
@@ -9,12 +10,10 @@ import SplashScreen from '~/containers/SplashScreen';
 import SocialMedia from '~/containers/SocialMedia';
 import LandingScreen from '../containers/LandingScreen';
 import FestivalMap from '../containers/FestivalMap';
-import { platform, dimensions } from '~/styles';
 
-export default class NavigationRouter extends Component {
+class NavigationRouter extends Component {
   render() {
     const { initialScreen } = this.props;
-    console.log(initialScreen);
     return (
       <Router>
         <Scene key="root" sceneStyle={styles.mainAppStyle}>
@@ -74,6 +73,12 @@ export default class NavigationRouter extends Component {
   }
 }
 NavigationRouter.contextTypes = { openDrawer: PropTypes.func.isRequired };
+
+NavigationRouter.propTypes = {
+  initialScreen: PropTypes.string,
+};
+
+export default NavigationRouter;
 
 const styles = StyleSheet.create({
   mainAppStyle: {

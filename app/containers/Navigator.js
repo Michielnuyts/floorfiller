@@ -3,8 +3,9 @@ import { dimensions } from '~/styles';
 import NavigationRouter from '~/containers/NavigationRouter';
 import Drawer from 'react-native-drawer';
 import Menu from '~/components/Menu';
+import PropTypes from 'prop-types';
 
-export default class Navigator extends Component {
+class Navigator extends Component {
   closeDrawer = () => {
     this._drawer.close();
   };
@@ -28,9 +29,15 @@ export default class Navigator extends Component {
   }
 }
 
+Navigator.propTypes = {
+  initialScreen: PropTypes.string,
+};
+
 Navigator.childContextTypes = {
   openDrawer: React.PropTypes.func,
 };
+
+export default Navigator;
 
 const drawerStyles = {
   drawer: { shadowColor: '#fff', shadowOpacity: 0.8, shadowRadius: 3 },

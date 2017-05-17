@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { View, Text, StyleSheet } from 'react-native';
+import { View, StyleSheet } from 'react-native';
 import FloatingMenuButton from '~/components/FloatingMenuButton';
 import { platform, dimensions } from '~/styles';
 import { Actions } from 'react-native-router-flux';
@@ -12,7 +12,6 @@ class SplashScreen extends Component {
     Actions.Lineup({ type: 'reset' });
   };
   render() {
-    console.log(this.props.firstBoot);
     return (
       <View style={styles.container}>
         <Animatable.View animation="bounceIn" style={styles.borderView}>
@@ -29,9 +28,6 @@ class SplashScreen extends Component {
               style={styles.text}>
               FloorFiller Festival
             </Animatable.Text>
-            {/* this.props.firstBoot laat gaan
-              ? <Text style={styles.text}>Yep</Text>
-              : <Text style={styles.text}>Nope</Text>*/}
           </View>
         </Animatable.View>
       </View>
