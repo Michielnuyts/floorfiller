@@ -1,30 +1,31 @@
-import React, { PropTypes, Component } from 'react';
+import React from 'react';
 import { View, StyleSheet, Text } from 'react-native';
-import { connect } from 'react-redux';
+import PropTypes from 'prop-types';
 import ShowDays from '~/components/ShowDays';
-import ShowStages from '~/components/ShowStages';
 import FavoriteArtistList from '~/containers/FavoriteArtistList';
 import FloatingMenuButton from '~/components/FloatingMenuButton';
 import { platform, dimensions } from '~/styles';
 
-class Favorites extends Component {
-  render() {
-    return (
-      <View style={styles.container}>
-        <View style={styles.showDays}>
-          <FloatingMenuButton onPress={this.props.onPress} />
-          <Text style={styles.text}>Your Custom Lineup</Text>
-          <ShowDays />
-        </View>
-        <View style={styles.artistList}>
-          <FavoriteArtistList />
-        </View>
+const Favorites = ({ onPress }) => {
+  return (
+    <View style={styles.container}>
+      <View style={styles.showDays}>
+        <FloatingMenuButton onPress={onPress} />
+        <Text style={styles.text}>Your Custom Lineup</Text>
+        <ShowDays />
       </View>
-    );
-  }
-}
+      <View style={styles.artistList}>
+        <FavoriteArtistList />
+      </View>
+    </View>
+  );
+};
 
-export default connect()(Favorites);
+Favorites.propTypes = {
+  onPress: PropTypes.func.isRequired,
+};
+
+export default Favorites;
 
 const styles = StyleSheet.create({
   container: {

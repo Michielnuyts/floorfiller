@@ -1,4 +1,4 @@
-import React, { PropTypes, Component } from 'react';
+import React, { Component } from 'react';
 import {
   View,
   Text,
@@ -9,6 +9,7 @@ import {
 import { connect } from 'react-redux';
 import SingleArtistPanel from '~/containers/SingleArtistPanel';
 import * as Animatable from 'react-native-animatable';
+import PropTypes from 'prop-types';
 import { dimensions } from '~/styles';
 import { stages } from '~/config';
 

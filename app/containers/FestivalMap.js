@@ -1,25 +1,31 @@
-import React, { Component } from 'react';
+import React from 'react';
 import { View, Text, StyleSheet } from 'react-native';
+import PropTypes from 'prop-types';
+
 import FloatingMenuButton from '~/components/FloatingMenuButton';
 import { platform, dimensions } from '~/styles';
 
 import StagesMap from '~/components/StagesMap';
 
-export default class FestivalMap extends Component {
-  render() {
-    return (
-      <View style={styles.container}>
-        <View style={styles.header}>
-          <FloatingMenuButton onPress={this.props.onPress} />
-          <Text style={styles.text}>Festival Stages</Text>
-        </View>
-        <View style={styles.mapView}>
-          <StagesMap />
-        </View>
+const FestivalMap = ({ onPress }) => {
+  return (
+    <View style={styles.container}>
+      <View style={styles.header}>
+        <FloatingMenuButton onPress={onPress} />
+        <Text style={styles.text}>Festival Stages</Text>
       </View>
-    );
-  }
-}
+      <View style={styles.mapView}>
+        <StagesMap />
+      </View>
+    </View>
+  );
+};
+
+FestivalMap.propTypes = {
+  onPress: PropTypes.func.isRequired,
+};
+
+export default FestivalMap;
 
 const styles = StyleSheet.create({
   container: {

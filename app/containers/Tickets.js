@@ -1,11 +1,15 @@
-import React, { PropTypes, Component } from 'react';
+import React, { Component } from 'react';
 import { View, Text, StyleSheet, WebView } from 'react-native';
+import PropTypes from 'prop-types';
+
 import FloatingMenuButton from '~/components/FloatingMenuButton';
 import SingleTicketPanel from '~/components/SingleTicketPanel';
 import { platform, dimensions } from '~/styles';
 
 export default class Tickets extends Component {
-  static propTypes = {};
+  static propTypes = {
+    onPress: PropTypes.func.isRequired,
+  };
   state = { pressed: false };
   handleClick = () => {
     this.setState({ pressed: true });

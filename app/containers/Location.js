@@ -1,12 +1,16 @@
 import React, { Component } from 'react';
 import { View, Text, StyleSheet } from 'react-native';
+import PropTypes from 'prop-types';
+
 import FloatingMenuButton from '~/components/FloatingMenuButton';
 import { platform, dimensions } from '~/styles';
-
 import GoogleMap from '~/components/GoogleMap';
 import TextDirections from '~/components/TextDirections';
 
 export default class Location extends Component {
+  static propTypes = {
+    onPress: PropTypes.func.isRequired,
+  };
   state = {
     showTextDirections: false,
   };

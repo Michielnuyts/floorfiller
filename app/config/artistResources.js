@@ -7,7 +7,6 @@ export const resources = {
   RAMONTAPIA: require('../images/artists/RAMONTAPIA.png'),
   MISSSHENE: require('../images/artists/MISSSHENE.png'),
   KONNA: require('../images/artists/KONNA.png'),
-  'MASSIMOCONECTO&MISSE': require('../images/artists/MISSSHENE.png'),
   PHADER: require('../images/artists/PHADER.png'),
   DELTANO: require('../images/artists/DELTANO.png'),
   'MASSIMOCONECTO&MISSE': require('../images/artists/MASSIMOCONECTO.png'),

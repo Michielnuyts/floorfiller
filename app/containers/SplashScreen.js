@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React from 'react';
 import { View, StyleSheet } from 'react-native';
 import FloatingMenuButton from '~/components/FloatingMenuButton';
 import { platform, dimensions } from '~/styles';
@@ -7,33 +7,28 @@ import * as Animatable from 'react-native-animatable';
 
 import SplashNews from '~/components/SplashNews';
 
-class SplashScreen extends Component {
-  handleSplashTap = () => {
+const SplashScreen = () => {
+  const handleSplashTap = () => {
     Actions.Lineup({ type: 'reset' });
   };
-  render() {
-    return (
-      <View style={styles.container}>
-        <Animatable.View animation="bounceIn" style={styles.borderView}>
-          <Animatable.View delay={800} animation="bounceIn" style={styles.news}>
-            <SplashNews />
-          </Animatable.View>
-          <View style={styles.logoContainer}>
-            <Animatable.View animation="bounceIn" delay={2000}>
-              <FloatingMenuButton onPress={this.handleSplashTap} />
-            </Animatable.View>
-            <Animatable.Text
-              delay={800}
-              animation="flipInY"
-              style={styles.text}>
-              FloorFiller Festival
-            </Animatable.Text>
-          </View>
+  return (
+    <View style={styles.container}>
+      <Animatable.View animation="bounceIn" style={styles.borderView}>
+        <Animatable.View delay={800} animation="bounceIn" style={styles.news}>
+          <SplashNews />
         </Animatable.View>
-      </View>
-    );
-  }
-}
+        <View style={styles.logoContainer}>
+          <Animatable.View animation="bounceIn" delay={2000}>
+            <FloatingMenuButton onPress={handleSplashTap} />
+          </Animatable.View>
+          <Animatable.Text delay={800} animation="flipInY" style={styles.text}>
+            FloorFiller Festival
+          </Animatable.Text>
+        </View>
+      </Animatable.View>
+    </View>
+  );
+};
 
 export default SplashScreen;
 

@@ -1,4 +1,4 @@
-import React, { PropTypes, Component } from 'react';
+import React, { Component } from 'react';
 import {
   View,
   Text,
@@ -10,11 +10,16 @@ import { connect } from 'react-redux';
 import { getAllArtists } from '~/redux/modules/artists';
 import SingleArtistPanel from '~/containers/SingleArtistPanel';
 import * as Animatable from 'react-native-animatable';
+import PropTypes from 'prop-types';
 import { dimensions } from '~/styles';
 
 class ArtistList extends Component {
-  static propTypes = {};
-  state = {};
+  static propTypes = {
+    dispatch: PropTypes.func.isRequired,
+    loadingArtists: PropTypes.bool.isRequired,
+    artists: PropTypes.object.isRequired,
+    activeStage: PropTypes.string.isRequired,
+  };
   componentWillMount() {
     this.props.dispatch(getAllArtists());
   }
@@ -58,6 +63,17 @@ class ArtistList extends Component {
   }
 }
 
+const mapStateToProps = ({ artists, lineupMenu }) => {
+  return {
+    artists: artists.artists,
+    loadingArtists: artists.loadingArtists,
+    activeDay: lineupMenu.activeDayTab,
+    activeStage: lineupMenu.activeStageTab,
+  };
+};
+
+export default connect(mapStateToProps)(ArtistList);
+
 const styles = StyleSheet.create({
   container: {
     flex: 2,
@@ -75,14 +91,3 @@ const styles = StyleSheet.create({
     fontWeight: 'bold',
   },
 });
-
-const mapStateToProps = ({ artists, lineupMenu }) => {
-  return {
-    artists: artists.artists,
-    loadingArtists: artists.loadingArtists,
-    activeDay: lineupMenu.activeDayTab,
-    activeStage: lineupMenu.activeStageTab,
-  };
-};
-
-export default connect(mapStateToProps)(ArtistList);

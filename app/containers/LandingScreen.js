@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React from 'react';
 import { View, StyleSheet } from 'react-native';
 import { platform, dimensions } from '~/styles';
 import { Actions } from 'react-native-router-flux';
@@ -6,18 +6,16 @@ import { SlidesData } from '../config';
 
 import Slides from '../components/Slides';
 
-class LandingScreen extends Component {
-  handlePress = () => {
+const LandingScreen = () => {
+  const handlePress = () => {
     Actions.SplashScreen({ type: 'reset' });
   };
-  render() {
-    return (
-      <View style={styles.container}>
-        <Slides data={SlidesData} onPress={this.handlePress} />
-      </View>
-    );
-  }
-}
+  return (
+    <View style={styles.container}>
+      <Slides data={SlidesData} onPress={handlePress} />
+    </View>
+  );
+};
 
 export default LandingScreen;
 
