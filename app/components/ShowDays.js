@@ -1,37 +1,47 @@
-import React, { PropTypes, Component } from 'react';
-import { View, Text, StyleSheet, Dimensions } from 'react-native';
+import React from 'react';
+import { View, StyleSheet, Dimensions } from 'react-native';
 import { connect } from 'react-redux';
 import SingleDay from '~/components/SingleDay';
+import PropTypes from 'prop-types';
 const { width } = Dimensions.get('window');
 import { setDayActive } from '~/redux/modules/lineupMenu';
 
-class ShowDays extends Component {
-  handleOnClick = day => {
+const ShowDays = ({ activeDay }) => {
+  const handleOnClick = day => {
     this.props.dispatch(setDayActive(day));
   };
-  render() {
-    const { activeDay } = this.props;
-    return (
-      <View style={styles.container}>
-        <SingleDay
-          onPress={this.handleOnClick}
-          showActiveIcon={activeDay === 'THURSDAY' ? true : false}>
-          THURSDAY
-        </SingleDay>
-        <SingleDay
-          onPress={this.handleOnClick}
-          showActiveIcon={activeDay === 'FRIDAY' ? true : false}>
-          FRIDAY
-        </SingleDay>
-        <SingleDay
-          onPress={this.handleOnClick}
-          showActiveIcon={activeDay === 'SATURDAY' ? true : false}>
-          SATURDAY
-        </SingleDay>
-      </View>
-    );
-  }
-}
+  return (
+    <View style={styles.container}>
+      <SingleDay
+        onPress={handleOnClick}
+        showActiveIcon={activeDay === 'THURSDAY' ? true : false}>
+        THURSDAY
+      </SingleDay>
+      <SingleDay
+        onPress={handleOnClick}
+        showActiveIcon={activeDay === 'FRIDAY' ? true : false}>
+        FRIDAY
+      </SingleDay>
+      <SingleDay
+        onPress={handleOnClick}
+        showActiveIcon={activeDay === 'SATURDAY' ? true : false}>
+        SATURDAY
+      </SingleDay>
+    </View>
+  );
+};
+
+ShowDays.propTypes = {
+  activeDay: PropTypes.string.isRequired,
+};
+
+const mapStateToProps = ({ lineupMenu }) => {
+  return {
+    activeDay: lineupMenu.activeDayTab,
+  };
+};
+
+export default connect(mapStateToProps)(ShowDays);
 
 const styles = StyleSheet.create({
   container: {
@@ -43,11 +53,3 @@ const styles = StyleSheet.create({
     backgroundColor: 'rgba(0, 0, 0, 0)',
   },
 });
-
-const mapStateToProps = ({ lineupMenu }) => {
-  return {
-    activeDay: lineupMenu.activeDayTab,
-  };
-};
-
-export default connect(mapStateToProps)(ShowDays);

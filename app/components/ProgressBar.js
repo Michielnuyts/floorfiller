@@ -1,16 +1,21 @@
-import React, { Component } from 'react';
-import { View, Text, StyleSheet } from 'react-native';
+import React from 'react';
+import { View, StyleSheet } from 'react-native';
+import PropTypes from 'prop-types';
 
-class ProgressBar extends Component {
-  render() {
-    return (
-      <View style={styles.container}>
-        <View style={{ flex: this.props.time }} />
-        <View style={{ flex: 1 - this.props.time, backgroundColor: 'black' }} />
-      </View>
-    );
-  }
-}
+const ProgressBar = ({ time }) => {
+  return (
+    <View style={styles.container}>
+      <View style={{ flex: time }} />
+      <View style={{ flex: 1 - time, backgroundColor: 'black' }} />
+    </View>
+  );
+};
+
+ProgressBar.propTypes = {
+  time: PropTypes.number.isRequired,
+};
+
+export default ProgressBar;
 
 const styles = StyleSheet.create({
   container: {
@@ -19,5 +24,3 @@ const styles = StyleSheet.create({
     backgroundColor: '#00FFA8',
   },
 });
-
-export default ProgressBar;

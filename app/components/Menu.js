@@ -2,7 +2,6 @@ import React, { PropTypes } from 'react';
 import {
   View,
   StyleSheet,
-  Text,
   TouchableOpacity,
   Image,
   Linking,
@@ -16,73 +15,70 @@ Menu.propTypes = {
   closeDrawer: PropTypes.func.isRequired,
 };
 
-export default function Menu(props) {
-  handleLineup = () => {
+const Menu = props => {
+  const handleLineup = () => {
     Actions.Lineup({ type: 'reset' });
   };
-  handleFavorites = () => {
+  const handleFavorites = () => {
     Actions.Favorites({ type: 'reset' });
   };
-  handleLocation = () => {
+  const handleLocation = () => {
     Actions.Location({ type: 'reset' });
   };
-  handleTickets = () => {
+  const handleTickets = () => {
     Actions.Tickets({ type: 'reset' });
   };
-  handleFestivalMap = () => {
+  const handleFestivalMap = () => {
     Actions.FestivalMap({ type: 'reset' });
   };
-  handleSocialMedia = () => {
-    Actions.SocialMedia({ type: 'reset' });
-  };
-  handleFacebookIcon = () => {
+  const handleFacebookIcon = () => {
     Linking.openURL('https://www.facebook.com/FloorFillerBelgium');
   };
-  handleInstagramIcon = () => {
+  const handleInstagramIcon = () => {
     Linking.openURL('https://www.instagram.com/floorfillerbelgium/');
   };
   return (
     <Image source={require('../images/drawer.png')} style={styles.container}>
       <MenuItem
-        onPress={this.handleLineup}
+        onPress={handleLineup}
         closeDrawer={props.closeDrawer}
         buttonText="TIMETABLE"
       />
       <MenuItem
-        onPress={this.handleFavorites}
+        onPress={handleFavorites}
         closeDrawer={props.closeDrawer}
         buttonText="MY FAVORITE ARTISTS"
       />
       <MenuItem
-        onPress={this.handleFestivalMap}
+        onPress={handleFestivalMap}
         closeDrawer={props.closeDrawer}
         buttonText="FESTIVAL MAP"
       />
       <MenuItem
-        onPress={this.handleLocation}
+        onPress={handleLocation}
         closeDrawer={props.closeDrawer}
         buttonText="HOW TO GET THERE"
       />
       <MenuItem
-        onPress={this.handleTickets}
+        onPress={handleTickets}
         closeDrawer={props.closeDrawer}
         buttonText="TICKETS"
       />
       <View style={styles.socialMedia}>
-        <TouchableOpacity onPress={this.handleFacebookIcon}>
+        <TouchableOpacity onPress={handleFacebookIcon}>
           <Icon
             style={[styles.icon, { marginRight: 15 }]}
             name="logo-facebook"
             size={60}
           />
         </TouchableOpacity>
-        <TouchableOpacity onPress={this.handleInstagramIcon}>
+        <TouchableOpacity onPress={handleInstagramIcon}>
           <Icon style={styles.icon} name="logo-instagram" size={60} />
         </TouchableOpacity>
       </View>
     </Image>
   );
-}
+};
 
 const styles = StyleSheet.create({
   container: {
