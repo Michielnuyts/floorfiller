@@ -9,7 +9,7 @@ const stageLocations = [
 ];
 
 const GoogleMaps = () => {
-  renderAllStages = () => {
+  const renderAllStages = () => {
     return stageLocations.map(stage => {
       return (
         <MapView.Marker

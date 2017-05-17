@@ -1,31 +1,40 @@
-import React, { Component } from 'react';
+import React from 'react';
 import { View, Text, StyleSheet, TouchableOpacity } from 'react-native';
+import PropTypes from 'prop-types';
 import { dimensions } from '~/styles';
 import { MaterialIcons } from '@expo/vector-icons';
 
-const TextDirections = props => {
-  if (!props.showTextDirections) {
+const TextDirections = ({ showTextDirections, onPress }) => {
+  const { container, textSmall } = styles;
+  if (!showTextDirections) {
     return (
-      <TouchableOpacity onPress={props.onPress}>
-        <View style={styles.container}>
+      <TouchableOpacity onPress={onPress}>
+        <View style={container}>
           <MaterialIcons name="directions" size={20} color="#fff" />
-          <Text style={styles.textSmall}>HELP ME FIND MY WAY!</Text>
+          <Text style={textSmall}>HELP ME FIND MY WAY!</Text>
         </View>
       </TouchableOpacity>
     );
   }
   return (
-    <TouchableOpacity onPress={props.onPress}>
-      <View style={[styles.container, { flexDirection: 'column' }]}>
-        <Text style={styles.textSmall}>Directions</Text>
-        <Text style={styles.textSmall}>Directions</Text>
-        <Text style={styles.textSmall}>Directions</Text>
-        <Text style={styles.textSmall}>Directions</Text>
-        <Text style={styles.textSmall}>Directions</Text>
+    <TouchableOpacity onPress={onPress}>
+      <View style={[container, { flexDirection: 'column' }]}>
+        <Text style={textSmall}>Directions</Text>
+        <Text style={textSmall}>Directions</Text>
+        <Text style={textSmall}>Directions</Text>
+        <Text style={textSmall}>Directions</Text>
+        <Text style={textSmall}>Directions</Text>
       </View>
     </TouchableOpacity>
   );
 };
+
+TextDirections.propTypes = {
+  showTextDirections: PropTypes.bool.isRequired,
+  onPress: PropTypes.func.isRequired,
+};
+
+export default TextDirections;
 
 const styles = StyleSheet.create({
   container: {
@@ -47,5 +56,3 @@ const styles = StyleSheet.create({
     fontSize: 13,
   },
 });
-
-export default TextDirections;

@@ -1,29 +1,33 @@
-import React, { PropTypes } from 'react';
-import { View, StyleSheet, Text, TouchableOpacity } from 'react-native';
+import React from 'react';
+import { StyleSheet, Text, TouchableOpacity } from 'react-native';
 import * as Animatable from 'react-native-animatable';
-import { dimensions } from '~/styles';
+import PropTypes from 'prop-types';
 
 SingleTicketPanel.propTypes = {
   text: PropTypes.string.isRequired,
   smallText: PropTypes.string.isRequired,
+  onPress: PropTypes.func.isRequired,
+  delay: PropTypes.number.isRequired,
 };
 
-export default function SingleTicketPanel(props) {
+const SingleTicketPanel = ({ onPress, delay, smallText, text }) => {
   return (
-    <TouchableOpacity onPress={props.onPress}>
+    <TouchableOpacity onPress={onPress}>
       <Animatable.View
-        delay={props.delay}
+        delay={delay}
         animation="flipInY"
         style={styles.container}>
-        <Text style={styles.text}>{props.text}</Text>
-        {props.smallText
-          ? <Text style={[styles.text, styles.italic]}>{props.smallText}</Text>
+        <Text style={styles.text}>{text}</Text>
+        {smallText
+          ? <Text style={[styles.text, styles.italic]}>{smallText}</Text>
           : null}
 
       </Animatable.View>
     </TouchableOpacity>
   );
-}
+};
+
+export default SingleTicketPanel;
 
 const styles = StyleSheet.create({
   container: {

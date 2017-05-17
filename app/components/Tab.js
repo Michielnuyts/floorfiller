@@ -1,14 +1,15 @@
-import React, { PropTypes } from 'react';
+import React from 'react';
 import { View, StyleSheet, Text } from 'react-native';
 import Icon from 'react-native-vector-icons/EvilIcons';
+import PropTypes from 'prop-types';
 
 Tab.propTypes = {
   children: PropTypes.string.isRequired,
-  showActiveIcon: PropTypes.bool.isRequired
+  showActiveIcon: PropTypes.bool.isRequired,
 };
 
 Tab.defaultProps = {
-  showActiveIcon: false
+  showActiveIcon: false,
 };
 
 export default function Tab(props) {
@@ -29,16 +30,16 @@ export default function Tab(props) {
 const styles = StyleSheet.create({
   container: {
     justifyContent: 'center',
-    alignItems: 'center'
+    alignItems: 'center',
   },
   tab: {
     alignItems: 'center',
     borderTopWidth: 1,
     borderColor: '#fff',
-    padding: 4
+    padding: 4,
   },
   text: {
     fontSize: 14,
-    color: '#fff'
-  }
+    color: '#fff',
+  },
 });

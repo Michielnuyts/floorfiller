@@ -1,21 +1,21 @@
 import React from 'react';
 import { View, Text, ScrollView, StyleSheet, Image } from 'react-native';
 import Button from 'react-native-button';
-import { platform, dimensions } from '~/styles';
+import PropTypes from 'prop-types';
+import { dimensions } from '~/styles';
 
 const Slides = ({ data, onPress }) => {
-  renderLastSlide = index => {
+  const renderLastSlide = index => {
     return index === data.length - 1
       ? <Button
           containerStyle={styles.containerStyle}
           style={styles.button}
-          onPress={onPress}
-        >
+          onPress={onPress}>
           Yep, Got It!
         </Button>
       : null;
   };
-  renderSlides = () => {
+  const renderSlides = () => {
     const slideImages = {
       0: require('../images/Slide1.png'),
       1: require('../images/Slide2.png'),
@@ -25,8 +25,7 @@ const Slides = ({ data, onPress }) => {
       return (
         <View
           style={[styles.slide, { backgroundColor: slide.backgroundColor }]}
-          key={slide.id}
-        >
+          key={slide.id}>
           <Text style={styles.text}>{slide.text}</Text>
 
           <Image
@@ -50,6 +49,11 @@ const Slides = ({ data, onPress }) => {
       </ScrollView>
     </View>
   );
+};
+
+Slides.propTypes = {
+  data: PropTypes.object.isRequired,
+  onPress: PropTypes.func.isRequired,
 };
 
 export default Slides;

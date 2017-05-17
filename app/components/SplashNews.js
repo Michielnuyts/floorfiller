@@ -3,11 +3,17 @@ import { View, Text, StyleSheet } from 'react-native';
 import { connect } from 'react-redux';
 import _ from 'lodash';
 import * as Animatable from 'react-native-animatable';
+import PropTypes from 'prop-types';
 
 import ProgressBar from '~/components/ProgressBar';
 import { fetchNews } from '~/redux/modules/news';
 
 class SplashNews extends Component {
+  static propTypes = {
+    loadingNews: PropTypes.bool.isRequired,
+    news: PropTypes.array,
+    dispatch: PropTypes.func.isRequired,
+  };
   state = {
     currentNewsItem: 0,
     secondsRemaining: 5,
@@ -25,16 +31,13 @@ class SplashNews extends Component {
     this.props.dispatch(fetchNews());
   }
   componentDidMount() {
-    this.interval = setInterval(
-      () => {
-        this.state.secondsRemaining <= 0
-          ? this.showNextNewsItem()
-          : this.setState({
-              secondsRemaining: this.state.secondsRemaining - 1,
-            });
-      },
-      1000
-    );
+    this.interval = setInterval(() => {
+      this.state.secondsRemaining <= 0
+        ? this.showNextNewsItem()
+        : this.setState({
+            secondsRemaining: this.state.secondsRemaining - 1,
+          });
+    }, 1000);
   }
   componentWillUnmount() {
     clearInterval(this.interval);

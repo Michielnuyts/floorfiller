@@ -1,6 +1,7 @@
-import React, { PropTypes } from 'react';
-import { View, StyleSheet, Text, TouchableOpacity } from 'react-native';
+import React from 'react';
+import { View, StyleSheet, TouchableOpacity } from 'react-native';
 import * as Animatable from 'react-native-animatable';
+import PropTypes from 'prop-types';
 
 SingleDay.propTypes = {
   children: PropTypes.string.isRequired,
@@ -12,23 +13,25 @@ SingleDay.defaultProps = {
   showActiveIcon: false,
 };
 
-export default function SingleDay(props) {
-  let borderColor = props.showActiveIcon
+const SingleDay = ({ onPress, children, showActiveIcon }) => {
+  let borderColor = showActiveIcon
     ? 'rgba(255, 255, 255, 1)'
     : 'rgba(255, 255, 255, 0.5)';
-  let animation = props.showActiveIcon ? 'tada' : null;
+  let animation = showActiveIcon ? 'tada' : null;
   return (
     <View style={styles.container}>
-      <TouchableOpacity onPress={() => props.onPress(props.children)}>
+      <TouchableOpacity onPress={() => onPress(children)}>
         <View style={[styles.tab, { borderColor }]}>
           <Animatable.Text animation={animation} style={styles.text}>
-            {props.children}
+            {children}
           </Animatable.Text>
         </View>
       </TouchableOpacity>
     </View>
   );
-}
+};
+
+export default SingleDay;
 
 const styles = StyleSheet.create({
   container: {
