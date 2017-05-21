@@ -3,13 +3,6 @@ import { StyleSheet, Text, TouchableOpacity } from 'react-native';
 import * as Animatable from 'react-native-animatable';
 import PropTypes from 'prop-types';
 
-SingleTicketPanel.propTypes = {
-  text: PropTypes.string.isRequired,
-  smallText: PropTypes.string.isRequired,
-  onPress: PropTypes.func.isRequired,
-  delay: PropTypes.number.isRequired,
-};
-
 const SingleTicketPanel = ({ onPress, delay, smallText, text }) => {
   return (
     <TouchableOpacity onPress={onPress}>
@@ -25,6 +18,13 @@ const SingleTicketPanel = ({ onPress, delay, smallText, text }) => {
       </Animatable.View>
     </TouchableOpacity>
   );
+};
+
+SingleTicketPanel.propTypes = {
+  text: PropTypes.string.isRequired,
+  smallText: PropTypes.string.isRequired,
+  onPress: PropTypes.func.isRequired,
+  delay: PropTypes.number.isRequired,
 };
 
 export default SingleTicketPanel;

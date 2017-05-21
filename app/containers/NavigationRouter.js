@@ -14,6 +14,7 @@ import FestivalMap from '../containers/FestivalMap';
 class NavigationRouter extends Component {
   render() {
     const { initialScreen } = this.props;
+    console.log(initialScreen);
     return (
       <Router>
         <Scene key="root" sceneStyle={styles.mainAppStyle}>

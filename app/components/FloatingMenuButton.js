@@ -14,7 +14,7 @@ export default class FloatingMenuButton extends Component {
         <TouchableOpacity style={styles.button} onPress={this.props.onPress}>
           <Animatable.Image
             animation="pulse"
-            duration={2500}
+            duration={500}
             iterationCount="infinite"
             style={{ width: 60, height: 60 }}
             source={require('../images/logo.png')}

@@ -7,7 +7,7 @@
         "file:///Users/Michielnuyts/Desktop/styles.css"
     ],
     "editor.fontSize": 16,
-    "window.zoomLevel": 0,
+    "window.zoomLevel": -1,
     "workbench.colorTheme": "TwoStones",
     "workbench.iconTheme": "vscode-icons",
     "files.exclude": {

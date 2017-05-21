@@ -18,13 +18,12 @@ export default class App extends Component {
     initialScreen: 'SplashScreen',
   };
   async componentWillMount() {
-    console.log('Mount');
-    if (await firstBoot()) {
+    if ((await firstBoot()) === true) {
       this.setState({ initialScreen: 'LandingScreen' });
     }
   }
   render() {
-    console.log('ya boy the saint');
+    console.log('Main App Renders');
     return (
       <Provider store={store}>
         <Navigator initialScreen={this.state.initialScreen} />

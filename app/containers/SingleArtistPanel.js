@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { StyleSheet, Image, TouchableOpacity } from 'react-native';
+import { StyleSheet, Image, TouchableWithoutFeedback } from 'react-native';
 import { dimensions } from '~/styles';
 import { favoriteArtist, unFavoriteArtist } from '~/redux/modules/favorites';
 import { connect } from 'react-redux';
@@ -37,7 +37,7 @@ class SingleArtistPanel extends Component {
       ? { borderWidth: 5, borderColor: '#00FFA8' }
       : null;
     return (
-      <TouchableOpacity onLongPress={this.handleFavorite}>
+      <TouchableWithoutFeedback onLongPress={this.handleFavorite}>
         <Image
           style={[styles.container, favoriteStyle]}
           resizeMode="cover"
@@ -50,7 +50,7 @@ class SingleArtistPanel extends Component {
             : <ArtistInfo {...this.props} />}
 
         </Image>
-      </TouchableOpacity>
+      </TouchableWithoutFeedback>
     );
   }
 }

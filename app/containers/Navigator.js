@@ -6,6 +6,9 @@ import Menu from '~/components/Menu';
 import PropTypes from 'prop-types';
 
 class Navigator extends Component {
+  static propTypes = {
+    initialScreen: PropTypes.string,
+  };
   closeDrawer = () => {
     this._drawer.close();
   };
@@ -28,10 +31,6 @@ class Navigator extends Component {
     );
   }
 }
-
-Navigator.propTypes = {
-  initialScreen: PropTypes.string,
-};
 
 Navigator.childContextTypes = {
   openDrawer: React.PropTypes.func,

@@ -2,12 +2,6 @@ import React from 'react';
 import { View, StyleSheet, Text, TouchableOpacity } from 'react-native';
 import PropTypes from 'prop-types';
 
-MenuItem.propTypes = {
-  onPress: PropTypes.func.isRequired,
-  closeDrawer: PropTypes.func.isRequired,
-  buttonText: PropTypes.string.isRequired,
-};
-
 const MenuItem = ({ buttonText, onPress, closeDrawer }) => {
   const handleButtonPress = () => {
     onPress();
@@ -21,6 +15,14 @@ const MenuItem = ({ buttonText, onPress, closeDrawer }) => {
     </TouchableOpacity>
   );
 };
+
+MenuItem.propTypes = {
+  onPress: PropTypes.func.isRequired,
+  closeDrawer: PropTypes.func.isRequired,
+  buttonText: PropTypes.string.isRequired,
+};
+
+export default MenuItem;
 
 const styles = StyleSheet.create({
   container: {

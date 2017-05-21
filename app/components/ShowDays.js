@@ -6,9 +6,9 @@ import PropTypes from 'prop-types';
 const { width } = Dimensions.get('window');
 import { setDayActive } from '~/redux/modules/lineupMenu';
 
-const ShowDays = ({ activeDay }) => {
+const ShowDays = ({ activeDay, dispatch }) => {
   const handleOnClick = day => {
-    this.props.dispatch(setDayActive(day));
+    dispatch(setDayActive(day));
   };
   return (
     <View style={styles.container}>
@@ -33,6 +33,7 @@ const ShowDays = ({ activeDay }) => {
 
 ShowDays.propTypes = {
   activeDay: PropTypes.string.isRequired,
+  dispatch: PropTypes.func.isRequired,
 };
 
 const mapStateToProps = ({ lineupMenu }) => {

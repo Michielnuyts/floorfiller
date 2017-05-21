@@ -8,23 +8,34 @@ export const stages = {
 };
 
 // Check if the app is opening for the first time on the device.
-// So we can show a first time boot help message.
+// So we can show a first time boot tutorial section.
+// export const firstBoot = async () => {
+//   await asyncStore
+//     .get('alreadyLaunched')
+//     .then(value => {
+//       if (value == null) {
+//         asyncStore.save('alreadyLaunched', true);
+//         console.log('This is my first boot!');
+//         return true;
+//       } else {
+//         console.log('I have been booted before!');
+//         return false;
+//       }
+//     })
+//     .catch(error => {
+//       console.log(error);
+//     });
+// };
+
 export const firstBoot = async () => {
-  await asyncStore
-    .get('alreadyLaunched')
-    .then(value => {
-      if (value == null) {
-        asyncStore.save('alreadyLaunched', true);
-        console.log('This is my first boot!');
-        return true;
-      } else {
-        console.log('I have been booted before!');
-        return false;
-      }
-    })
-    .catch(error => {
-      console.log(error);
-    });
+  let token = await asyncStore.get('alreadyLaunched');
+
+  if (token) {
+    return true;
+  } else {
+    asyncStore.save('alreadyLaunched', true);
+    return false;
+  }
 };
 
 export const SlidesData = [

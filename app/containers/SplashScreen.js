@@ -24,6 +24,12 @@ const SplashScreen = () => {
           <Animatable.Text delay={800} animation="flipInY" style={styles.text}>
             FloorFiller Festival
           </Animatable.Text>
+          <Animatable.Text
+            delay={8000}
+            animation="fadeIn"
+            style={styles.textSmall}>
+            Tap The Logo :)
+          </Animatable.Text>
         </View>
       </Animatable.View>
     </View>

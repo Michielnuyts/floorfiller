@@ -7,9 +7,9 @@ import { setStageActive } from '~/redux/modules/lineupMenu';
 import { stages } from '~/config';
 import { dimensions } from '~/styles';
 
-const ShowStages = ({ activeStage, activeDay }) => {
+const ShowStages = ({ activeStage, activeDay, dispatch }) => {
   const handleOnClick = stage => {
-    this.props.dispatch(setStageActive(stage));
+    dispatch(setStageActive(stage));
   };
   const renderEachRow = () => {
     // Render all stages on the menu depended on the selected day

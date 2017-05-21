@@ -3,16 +3,6 @@ import { View, StyleSheet, TouchableOpacity } from 'react-native';
 import * as Animatable from 'react-native-animatable';
 import PropTypes from 'prop-types';
 
-SingleDay.propTypes = {
-  children: PropTypes.string.isRequired,
-  showActiveIcon: PropTypes.bool.isRequired,
-  onPress: PropTypes.func.isRequired,
-};
-
-SingleDay.defaultProps = {
-  showActiveIcon: false,
-};
-
 const SingleDay = ({ onPress, children, showActiveIcon }) => {
   let borderColor = showActiveIcon
     ? 'rgba(255, 255, 255, 1)'
@@ -29,6 +19,16 @@ const SingleDay = ({ onPress, children, showActiveIcon }) => {
       </TouchableOpacity>
     </View>
   );
+};
+
+SingleDay.propTypes = {
+  children: PropTypes.string.isRequired,
+  showActiveIcon: PropTypes.bool.isRequired,
+  onPress: PropTypes.func.isRequired,
+};
+
+SingleDay.defaultProps = {
+  showActiveIcon: false,
 };
 
 export default SingleDay;

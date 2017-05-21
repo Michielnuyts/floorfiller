@@ -11,10 +11,6 @@ import MenuItem from '~/components/MenuItem';
 import { dimensions, platform } from '~/styles';
 import Icon from 'react-native-vector-icons/Ionicons';
 
-Menu.propTypes = {
-  closeDrawer: PropTypes.func.isRequired,
-};
-
 const Menu = props => {
   const handleLineup = () => {
     Actions.Lineup({ type: 'reset' });
@@ -79,6 +75,12 @@ const Menu = props => {
     </Image>
   );
 };
+
+Menu.propTypes = {
+  closeDrawer: PropTypes.func.isRequired,
+};
+
+export default Menu;
 
 const styles = StyleSheet.create({
   container: {

@@ -52,7 +52,7 @@ const Slides = ({ data, onPress }) => {
 };
 
 Slides.propTypes = {
-  data: PropTypes.object.isRequired,
+  data: PropTypes.array.isRequired,
   onPress: PropTypes.func.isRequired,
 };
 

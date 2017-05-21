@@ -17,7 +17,7 @@ class ArtistList extends Component {
   static propTypes = {
     dispatch: PropTypes.func.isRequired,
     loadingArtists: PropTypes.bool.isRequired,
-    artists: PropTypes.object.isRequired,
+    artists: PropTypes.object,
     activeStage: PropTypes.string.isRequired,
   };
   componentWillMount() {

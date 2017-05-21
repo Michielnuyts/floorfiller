@@ -16,23 +16,25 @@ const GoogleMaps = () => {
           key={stage.lat}
           coordinate={{ latitude: stage.lat, longitude: stage.long }}
           title={stage.title}
-          image={require('../images//marker.png')}
+          image={require('../images/marker.png')}
         />
       );
     });
   };
   return (
     <View style={{ flex: 1 }}>
-      <MapView
+      <MapView.Animated
         style={styles.map}
+        loadingEnabled
+        ref={c => (this._map = c)}
         initialRegion={{
           latitude: 50.841707,
           longitude: 5.520720,
-          latitudeDelta: 0.0922,
-          longitudeDelta: 0.0421,
+          latitudeDelta: 0.0122,
+          longitudeDelta: 0.0021,
         }}>
         {renderAllStages()}
-      </MapView>
+      </MapView.Animated>
     </View>
   );
 };
