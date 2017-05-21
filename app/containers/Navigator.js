@@ -7,7 +7,7 @@ import PropTypes from 'prop-types';
 
 class Navigator extends Component {
   static propTypes = {
-    initialScreen: PropTypes.string,
+    skip: PropTypes.bool,
   };
   closeDrawer = () => {
     this._drawer.close();
@@ -26,7 +26,7 @@ class Navigator extends Component {
         openDrawerOffset={Math.floor(dimensions.screenWidth) - 200}
         styles={drawerStyles}
         tapToClose>
-        <NavigationRouter initialScreen={this.props.initialScreen} />
+        <NavigationRouter />
       </Drawer>
     );
   }

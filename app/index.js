@@ -6,7 +6,7 @@ import { Provider } from 'react-redux';
 import thunk from 'redux-thunk';
 import * as reducers from './redux';
 
-import { firstBoot } from './config';
+import { checkForFirstBoot } from './redux/modules/boot';
 
 const store = createStore(
   combineReducers(reducers),
@@ -14,19 +14,13 @@ const store = createStore(
 );
 
 export default class App extends Component {
-  state = {
-    initialScreen: 'SplashScreen',
-  };
-  async componentWillMount() {
-    if ((await firstBoot()) === true) {
-      this.setState({ initialScreen: 'LandingScreen' });
-    }
+  componentWillMount() {
+    store.dispatch(checkForFirstBoot());
   }
   render() {
-    console.log('Main App Renders');
     return (
       <Provider store={store}>
-        <Navigator initialScreen={this.state.initialScreen} />
+        <Navigator />
       </Provider>
     );
   }
