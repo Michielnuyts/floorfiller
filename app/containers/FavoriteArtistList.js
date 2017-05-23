@@ -41,6 +41,7 @@ class FavoriteArtistList extends Component {
                 artistName={allArtists[artist].artistName}
                 startTime={allArtists[artist].startTime}
                 endTime={allArtists[artist].endTime}
+                day={allArtists[artist].day}
               />
             </Animatable.View>
           );

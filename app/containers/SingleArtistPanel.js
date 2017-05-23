@@ -33,6 +33,7 @@ class SingleArtistPanel extends Component {
     // artistpanel that has been double tapped
   };
   render() {
+    console.log(this.props);
     let favoriteStyle = this.props.favorites[this.props.artistName]
       ? { borderWidth: 5, borderColor: '#00FFA8' }
       : null;

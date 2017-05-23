@@ -1,5 +1,12 @@
 import React from 'react';
-import { View, Text, ScrollView, StyleSheet, Image } from 'react-native';
+import {
+  View,
+  Text,
+  ScrollView,
+  StyleSheet,
+  Image,
+  Platform,
+} from 'react-native';
 import Button from 'react-native-button';
 import PropTypes from 'prop-types';
 import { dimensions } from '~/styles';
@@ -85,6 +92,7 @@ const styles = StyleSheet.create({
     marginTop: 10,
   },
   text: {
+    fontFamily: Platform.OS === 'android' ? 'sans-serif-light' : undefined,
     marginTop: 20,
     color: '#fff',
     fontWeight: '200',
