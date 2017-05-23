@@ -1,5 +1,5 @@
 import React from 'react';
-import { StyleSheet, Text, TouchableOpacity } from 'react-native';
+import { StyleSheet, Text, TouchableOpacity, Platform } from 'react-native';
 import * as Animatable from 'react-native-animatable';
 import PropTypes from 'prop-types';
 
@@ -36,6 +36,7 @@ const styles = StyleSheet.create({
     marginBottom: 25,
   },
   text: {
+    fontFamily: Platform.OS === 'android' ? 'sans-serif-light' : undefined,
     color: '#fff',
     fontWeight: '200',
     fontSize: 18,

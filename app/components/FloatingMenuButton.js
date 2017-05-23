@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { View, TouchableOpacity, StyleSheet } from 'react-native';
+import { View, TouchableOpacity, StyleSheet, StatusBar } from 'react-native';
 import * as Animatable from 'react-native-animatable';
 import PropTypes from 'prop-types';
 
@@ -11,6 +11,7 @@ export default class FloatingMenuButton extends Component {
   render() {
     return (
       <View style={styles.container}>
+        <StatusBar hidden />
         <TouchableOpacity style={styles.button} onPress={this.props.onPress}>
           <Animatable.Image
             animation="pulse"
@@ -33,9 +34,5 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     justifyContent: 'center',
     alignItems: 'center',
-  },
-  tapMe: {
-    position: 'absolute',
-    backgroundColor: 'rgba(0,0,0,0)',
   },
 });

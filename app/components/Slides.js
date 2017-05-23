@@ -99,6 +99,7 @@ const styles = StyleSheet.create({
     fontSize: 35,
   },
   textSmall: {
+    fontFamily: Platform.OS === 'android' ? 'sans-serif-light' : undefined,
     color: '#00FFA8',
     fontWeight: '100',
     fontSize: 20,

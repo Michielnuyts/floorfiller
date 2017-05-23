@@ -1,5 +1,5 @@
 import React from 'react';
-import { View, StyleSheet } from 'react-native';
+import { View, StyleSheet, Platform } from 'react-native';
 import FloatingMenuButton from '~/components/FloatingMenuButton';
 import { platform, dimensions } from '~/styles';
 import { Actions } from 'react-native-router-flux';
@@ -68,12 +68,14 @@ const styles = StyleSheet.create({
     margin: 10,
   },
   text: {
+    fontFamily: Platform.OS === 'android' ? 'sans-serif-light' : undefined,
     marginTop: 20,
     color: '#fff',
     fontWeight: '200',
     fontSize: 30,
   },
   textSmall: {
+    fontFamily: Platform.OS === 'android' ? 'sans-serif-light' : undefined,
     color: '#fff',
     fontWeight: '100',
     fontSize: 13,
