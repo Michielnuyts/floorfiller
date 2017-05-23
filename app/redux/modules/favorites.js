@@ -2,7 +2,8 @@ import asyncStore from 'react-native-simple-store';
 
 const FAVORITE_ARTIST = 'FAVORITE_ARTIST';
 const UNFAVORITE_ARTIST = 'UNFAVORITE_ARTIST';
-const UPDATE_FAVORITES_FROM_ASYNC_STORAGE = 'UPDATE_FAVORITES_FROM_ASYNC_STORAGE';
+const UPDATE_FAVORITES_FROM_ASYNC_STORAGE =
+  'UPDATE_FAVORITES_FROM_ASYNC_STORAGE';
 
 export const favoriteArtist = artist => {
   return {
@@ -40,8 +41,7 @@ export const setInitialStateFromAsyncstorage = () => {
       .then(favoriteArtists => {
         dispatch(pushToRedux(favoriteArtists.favorites));
       })
-      .catch(error => {
-        console.log('oops, i fucked up right here.', error);
+      .catch(() => {
         // Set an initial empty object for this key, this should prevent iOS
         // app from crashing on launch.
         asyncStore.save('favoriteArtists', {

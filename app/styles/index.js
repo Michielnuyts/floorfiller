@@ -12,7 +12,7 @@ const dimensions = {
   screenHeight: height,
   marginTop: {
     android: 0,
-    ios: 22,
+    ios: 0,
   },
 };
 

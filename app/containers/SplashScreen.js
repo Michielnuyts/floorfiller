@@ -1,5 +1,5 @@
 import React from 'react';
-import { View, StyleSheet, Platform } from 'react-native';
+import { View, StyleSheet, Platform, NetInfo } from 'react-native';
 import FloatingMenuButton from '~/components/FloatingMenuButton';
 import { platform, dimensions } from '~/styles';
 import { Actions } from 'react-native-router-flux';
@@ -8,6 +8,9 @@ import * as Animatable from 'react-native-animatable';
 import SplashNews from '~/components/SplashNews';
 
 const SplashScreen = () => {
+  NetInfo.isConnected.fetch().then(isConnected => {
+    console.log('First, is ' + (isConnected ? 'online' : 'offline'));
+  });
   const handleSplashTap = () => {
     Actions.Lineup({ type: 'reset' });
   };
